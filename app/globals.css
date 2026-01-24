@@ -3,69 +3,69 @@
 @layer base {
   :root {
 
-  /* Accent colors */
-  --color-orange: hsl(16 80% 52%);
-  --color-aubergine: hsl(307 55% 30%);
-  --color-canonical-purple: hsl(330 100% 9%);
-  --color-warm-grey: hsl(30 6% 65%);
-  --color-terminal-green: hsl(90 65% 32%);
-  --color-terminal-blue: hsl(215 52% 42%);
-  --color-bright-blue: hsl(210 55% 62%);
-  --color-terminal-red: hsl(0 100% 40%);
-  --color-bright-red: hsl(0 85% 55%);
-  --color-terminal-yellow: hsl(48 100% 38%);
-  --color-terminal-cyan: hsl(181 92% 32%);
+    /* Accent colors */
+    --color-orange: hsl(16 80% 52%);
+    --color-aubergine: hsl(307 55% 30%);
+    --color-canonical-purple: hsl(330 100% 9%);
+    --color-warm-grey: hsl(30 6% 65%);
+    --color-terminal-green: hsl(90 65% 32%);
+    --color-terminal-blue: hsl(215 52% 42%);
+    --color-bright-blue: hsl(210 55% 62%);
+    --color-terminal-red: hsl(0 100% 40%);
+    --color-bright-red: hsl(0 85% 55%);
+    --color-terminal-yellow: hsl(48 100% 38%);
+    --color-terminal-cyan: hsl(181 92% 32%);
 
 
-  /* Default Theme Colors */
-  --background: 220 14% 15%;
-  --background-elevated: 220 14% 17%;
-  --background-hover: 220 14% 22%;
-  --foreground: 0 0% 96%;
-  --primary: 210 60% 56%;
-  --accent: 145 45% 52%;
-  --border: 220 12% 26%;
-  --text: 0 0% 94%;
-  --text-muted: 220 6% 68%;
-}
+    /* Default Theme Colors */
+    --background: 220 14% 15%;
+    --background-elevated: 220 14% 17%;
+    --background-hover: 220 14% 22%;
+    --foreground: 0 0% 96%;
+    --primary: 210 60% 56%;
+    --accent: 145 45% 52%;
+    --border: 220 12% 26%;
+    --text: 0 0% 94%;
+    --text-muted: 220 6% 68%;
+  }
 
 
-.midnight-eclipse {
-  --background: 240 8% 9%;
-  --background-elevated: 240 8% 12%;
-  --background-hover: 240 8% 16%;
-  --foreground: 0 0% 96%;
-  --primary: 265 48% 52%;
-  --accent: 290 55% 58%;
-  --border: 240 6% 24%;
-  --text: 0 0% 94%;
-  --text-muted: 230 6% 68%;
-}
+  .midnight-eclipse {
+    --background: 240 8% 9%;
+    --background-elevated: 240 8% 12%;
+    --background-hover: 240 8% 16%;
+    --foreground: 0 0% 96%;
+    --primary: 265 48% 52%;
+    --accent: 290 55% 58%;
+    --border: 240 6% 24%;
+    --text: 0 0% 94%;
+    --text-muted: 230 6% 68%;
+  }
 
-.sunset-horizon {
-  --background: 24 12% 14%;
-  --background-elevated: 24 12% 17%;
-  --background-hover: 24 12% 21%;
-  --foreground: 0 10% 96%;
-  --primary: 32 90% 50%;
-  --accent: 42 85% 56%;
-  --border: 24 25% 34%;
-  --text: 0 0% 94%;
-  --text-muted: 28 10% 70%;
-}
+  .sunset-horizon {
+    --background: 24 12% 14%;
+    --background-elevated: 24 12% 17%;
+    --background-hover: 24 12% 21%;
+    --foreground: 0 10% 96%;
+    --primary: 32 90% 50%;
+    --accent: 42 85% 56%;
+    --border: 24 25% 34%;
+    --text: 0 0% 94%;
+    --text-muted: 28 10% 70%;
+  }
 
 
-.forest-breeze {
-  --background: 160 20% 13%;
-  --background-elevated: 160 20% 16%;
-  --background-hover: 160 20% 19%;
-  --foreground: 0 0% 96%;
-  --primary: 135 38% 48%;
-  --accent: 95 60% 55%;
-  --border: 150 14% 30%;
-  --text: 0 0% 94%;
-  --text-muted: 150 8% 68%;
-}
+  .forest-breeze {
+    --background: 160 20% 13%;
+    --background-elevated: 160 20% 16%;
+    --background-hover: 160 20% 19%;
+    --foreground: 0 0% 96%;
+    --primary: 135 38% 48%;
+    --accent: 95 60% 55%;
+    --border: 150 14% 30%;
+    --text: 0 0% 94%;
+    --text-muted: 150 8% 68%;
+  }
 }
 
 

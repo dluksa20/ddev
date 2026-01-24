@@ -28,7 +28,7 @@ export const ACCENT_COLORS = [
 ];
 
 export const THEMES = [
-    'Midnight Eclipse',
-    'Sunset Horizon',
-    'Forest Breeze'
+  { id: "midnight-eclipse", label: "Midnight Eclipse" },
+  { id: "sunset-horizon", label: "Sunset Horizon" },
+  { id: "forest-breeze", label: "Forest Breeze" },
 ]

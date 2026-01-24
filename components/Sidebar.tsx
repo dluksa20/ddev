@@ -1,3 +1,4 @@
+// 'use client'
 import Button from './Button'
 import { FaGithub, FaLinkedin, FaChevronRight } from "react-icons/fa"
 import { MdOutlinePalette } from "react-icons/md";
@@ -5,20 +6,43 @@ import { PiLinkSimpleLight } from "react-icons/pi";
 import { IoMail } from "react-icons/io5";
 import { ACCENT_COLORS, links } from '@/lib/constants'
 import Link from 'next/link'
-import { useState } from 'react';
-import { THEMES } from '@/lib/constants';
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
+
 
 type CloseProps = {
     onClose: () => void;
 }
 
 const Sidebar = ({ onClose }: CloseProps) => {
-
-    // track the currently active accent button
     const [activeColor, setActiveColor] = useState<string | null>(null);
-    const [activeTheme, setActiveTheme] = useState<string>("Midnight Eclipse");
-    const [active, setActive] = useState(true);
+    const { theme, setTheme } = useTheme()
+    
+    
+    const setAccentColor = (accentColor: string) => {
+        document.documentElement.style.setProperty(
+            '--color-accent',
+            `var(--color-${accentColor})`
+        )
+        
+        setActiveColor(accentColor)
+        localStorage.setItem('accent-color', accentColor)
+    }
+    
+    useEffect(() => {
+        const savedAccent = localStorage.getItem('accent-color')
 
+        if (savedAccent) {
+            document.documentElement.style.setProperty(
+                '--color-accent',
+                `var(--color-${savedAccent})`
+            )
+            setActiveColor(savedAccent)
+        }
+    }, [])
+    
+    
+    
     return (
         <div className='site-sidebar'>
             <div className='site-sidebar__inner'>
@@ -44,15 +68,9 @@ const Sidebar = ({ onClose }: CloseProps) => {
                             </div>
 
                             <div className='site-sidebar__buttons'>
-                                {THEMES.map((theme) => (
-                                    <Button
-                                        key={theme}
-                                        buttonText={theme}
-                                        size='xs'
-                                        isActive={activeTheme === theme}     // controlled
-                                        onClick={() => setActiveTheme(theme)} // update state
-                                    />
-                                ))}
+                                <Button buttonText='Midnight Eclipse' size='xs' onClick={() => setTheme('midnight-eclipse')} />
+                                <Button buttonText='Sunset Horizon' size='xs' onClick={() => setTheme('sunset-horizon')} />
+                                <Button buttonText='Forest Breeze' size='xs' onClick={() => setTheme('forest-breeze')} />
                             </div>
 
                             {/* Accent Colors Grid */}
@@ -72,7 +90,8 @@ const Sidebar = ({ onClose }: CloseProps) => {
                                                     ? `0 0 0 2px var(--color-background-elevated), 0 0 0 4px var(--color-${accentColor})`
                                                     : "none",
                                             }}
-                                            onClick={() => setActiveColor(accentColor)}
+                                            onClick={() => setAccentColor(accentColor)}
+
                                         />
                                     );
                                 })}
