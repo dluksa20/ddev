@@ -8,41 +8,50 @@ import { ACCENT_COLORS, links } from '@/lib/constants'
 import Link from 'next/link'
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-
+import { THEMES } from '@/lib/constants';
 
 type CloseProps = {
     onClose: () => void;
 }
 
 const Sidebar = ({ onClose }: CloseProps) => {
+
     const [activeColor, setActiveColor] = useState<string | null>(null);
+    const [activeTheme, setActiveTheme] = useState('midnight-eclipse');
+
+    const [active, setActive] = useState(false)
     const { theme, setTheme } = useTheme()
-    
-    
+
+
     const setAccentColor = (accentColor: string) => {
         document.documentElement.style.setProperty(
             '--color-accent',
             `var(--color-${accentColor})`
         )
-        
+
         setActiveColor(accentColor)
         localStorage.setItem('accent-color', accentColor)
     }
-    
-    useEffect(() => {
-        const savedAccent = localStorage.getItem('accent-color')
 
-        if (savedAccent) {
-            document.documentElement.style.setProperty(
-                '--color-accent',
-                `var(--color-${savedAccent})`
-            )
-            setActiveColor(savedAccent)
-        }
-    }, [])
-    
-    
-    
+    const switchTheme = (t: String) => {
+        setTheme(t)
+
+    }
+
+    // useEffect(() => {
+    //     const savedAccent = localStorage.getItem('accent-color')
+
+    //     if (savedAccent) {
+    //         document.documentElement.style.setProperty(
+    //             '--color-accent',
+    //             `var(--color-${savedAccent})`
+    //         )
+    //         setActiveColor(savedAccent)
+    //     }
+    // }, [])
+
+
+
     return (
         <div className='site-sidebar'>
             <div className='site-sidebar__inner'>
@@ -67,10 +76,20 @@ const Sidebar = ({ onClose }: CloseProps) => {
                                 <h2>Themes</h2>
                             </div>
 
-                            <div className='site-sidebar__buttons'>
-                                <Button buttonText='Midnight Eclipse' size='xs' onClick={() => setTheme('midnight-eclipse')} />
-                                <Button buttonText='Sunset Horizon' size='xs' onClick={() => setTheme('sunset-horizon')} />
-                                <Button buttonText='Forest Breeze' size='xs' onClick={() => setTheme('forest-breeze')} />
+                            <div className="site-sidebar__buttons">
+                                {THEMES.map(theme => (
+                                    <Button
+                                        key={theme.id}
+                                        buttonText={theme.label}
+                                        isActive={activeTheme === theme.id}
+                                        variant="borderless"
+                                        size="xs"
+                                        onClick={() => {
+                                            setTheme(theme.id)
+                                            setActiveTheme(theme.id)
+                                        }}
+                                    />
+                                ))}
                             </div>
 
                             {/* Accent Colors Grid */}

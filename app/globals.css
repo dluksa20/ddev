@@ -4,52 +4,49 @@
   :root {
 
     /* Accent colors */
-    --color-orange: hsl(16 80% 52%);
-    --color-aubergine: hsl(307 55% 30%);
-    --color-canonical-purple: hsl(330 100% 9%);
-    --color-warm-grey: hsl(30 6% 65%);
-    --color-terminal-green: hsl(90 65% 32%);
-    --color-terminal-blue: hsl(215 52% 42%);
-    --color-bright-blue: hsl(210 55% 62%);
-    --color-terminal-red: hsl(0 100% 40%);
-    --color-bright-red: hsl(0 85% 55%);
-    --color-terminal-yellow: hsl(48 100% 38%);
-    --color-terminal-cyan: hsl(181 92% 32%);
+    --color-coral-rose: #F07178;        /* warm pinkish coral */
+    --color-sage-green: #C3E88D;        /* soft muted green */
+    --color-amber-glow: #F6C177;        /* warm golden amber */
+    --color-glacier-blue: #9CCFD8;      /* pale icy blue */
+    --color-orchid-purple: #C792EA;     /* light vibrant purple */
+    --color-sky-blue: #60ADEC;          /* clear mid blue */
+    --color-steel-grey: #ABB2BF;        /* cool neutral grey */
 
 
     /* Default Theme Colors */
-    --background: 220 14% 15%;
-    --background-elevated: 220 14% 17%;
+    --background: 207, 95%, 8%;
+    --background-elevated: 207, 95%, 8%;
     --background-hover: 220 14% 22%;
     --foreground: 0 0% 96%;
-    --primary: 210 60% 56%;
-    --accent: 145 45% 52%;
-    --border: 220 12% 26%;
+    --primary: 210 60% 86%;
+    --accent: 145 45% 82%;
+    --border: 220 12% 36%;
     --text: 0 0% 94%;
     --text-muted: 220 6% 68%;
   }
 
 
-  .midnight-eclipse {
-    --background: 240 8% 9%;
-    --background-elevated: 240 8% 12%;
-    --background-hover: 240 8% 16%;
+  .palenight {
+    --background: 229, 20%, 20%;
+    --background-elevated: 229, 20%, 24%;
+    --background-hover: 229 20% 20%;
     --foreground: 0 0% 96%;
-    --primary: 265 48% 52%;
-    --accent: 290 55% 58%;
-    --border: 240 6% 24%;
+    --primary: 260, 100%, 88%;
+    --accent:260, 100%, 88%;
+    --border: 0, 1%, 34%;
     --text: 0 0% 94%;
     --text-muted: 230 6% 68%;
   }
 
+
   .sunset-horizon {
-    --background: 24 12% 14%;
-    --background-elevated: 24 12% 17%;
+    --background: 0, 0%, 11%;
+    --background-elevated: 0, 0%, 15%;
     --background-hover: 24 12% 21%;
     --foreground: 0 10% 96%;
     --primary: 32 90% 50%;
     --accent: 42 85% 56%;
-    --border: 24 25% 34%;
+    --border: 0, 1%, 44%;
     --text: 0 0% 94%;
     --text-muted: 28 10% 70%;
   }
@@ -103,28 +100,28 @@
 @layer utilities {
 
   button:hover {
-    @apply bg-background cursor-pointer text-accent border  border-accent/50 fill-accent
+    @apply bg-background cursor-pointer text-accent border  border-accent/50 fill-accent;
   }
 
   button:hover > svg {
-    @apply fill-accent 
+    @apply fill-accent;
   }
 
   /* Headings */
   h1 {
-    @apply text-[1.25rem]
+    @apply text-[1.25rem];
   }
   h2 {
-    @apply text-[1rem] text-text
+    @apply text-[1rem] text-text;
   }
   a {
-    @apply text-[1rem] text-text
+    @apply text-[1rem] text-text;
   }
   a:hover {
-    @apply underline text-accent
+    @apply underline text-accent;
   }
   svg {
-    @apply fill-text-muted
+    @apply fill-text-muted;
   }
 }
 
@@ -132,69 +129,70 @@
 @layer components {
   /* Button styles */
   .site-btn__default {
-    @apply p-2 text-accent rounded-md
+    @apply p-2 text-accent rounded-md;
   }
   .site-btn__primary {
-    @apply p-1 border border-border rounded-sm w-full text-text
+    @apply p-1 border border-border rounded-sm w-full text-text;
   }
   .site-btn__secondary {
-    @apply p-1 border border-border rounded-sm w-full text-accent
+    @apply p-1 border border-border rounded-sm w-full text-accent;
   }
-  .site-btn__outline {
-    @apply p-1 border border-border rounded-sm w-full text-accent
+  .site-btn__borderless {
+    @apply p-1  rounded-sm w-full text-accent;
   }
   .site-btn__active {
-    @apply bg-background cursor-pointer text-accent border  border-accent/50 fill-accent
+    @apply bg-background cursor-pointer text-accent border  border-accent/50 fill-accent;
   }
 
 
   /* Site Header */
   .site-header {
-    @apply w-full flex justify-center items-center border-b border-border bg-background text-accent font-display
+    @apply w-full flex justify-center items-center text-accent font-display p-5;
   }
   .site-header__inner {
-    @apply w-full max-w-360 flex items-center justify-between h-16 px-4
+    @apply w-full max-w-360 flex items-center justify-between h-16 px-4 bg-background-elevated border-[0.25px] border-accent p-3 rounded-md shadow-2xl;
   }
   .site-header__title {
-    @apply flex items-center justify-center gap-2
+    @apply flex items-center justify-center gap-2;
   }
   .site-header__cursor {
-  @apply flex items-center justify-center bg-foreground w-2 h-6
+  @apply flex items-center justify-center bg-foreground w-2 h-6;
   }
   .site-header__nav {
-    @apply flex items-center h-full justify-center gap-6 
+    @apply flex items-center h-full justify-center gap-6 ;
   }
+
 
   /* Sidebar */
-
   .site-sidebar {
-    @apply absolute top-0 h-full right-0 w-70 border-l border-border bg-background-elevated shadow-2xl;
+    @apply absolute top-0 h-full right-0 w-70  border-border bg-background-elevated shadow-2xl;
   }
   .site-sidebar__inner {
-    @apply flex flex-col gap-2 h-full
+    @apply flex flex-col gap-2 h-full border-l-[0.1px];
   }
   .site-sidebar__section {
-    @apply flex flex-col p-4 gap-4
+    @apply flex flex-col p-4 gap-4;
   }
   .site-sidebar__header {
-    @apply  min-w-60 border-border border-b p-4 
+    @apply  min-w-60 border-border p-4;
   }
   .site-sidebar__footer {
-    @apply border
+    @apply border;
   }
   .site-sidebar__buttons {
-    @apply grid grid-cols-2 gap-2 border border-border p-2 rounded-md
+    @apply grid grid-cols-2 gap-2 border-[0.25px] border-border p-1 rounded-md;
   }
   .site-sidebar__themes {
-    @apply flex flex-col justify-center gap-4
+    @apply flex flex-col justify-center gap-4;
   }
-  .site-sidebar__buttons > :first-child {
-    @apply col-span-2
+  .site-sidebar__buttons > :last-child {
+    @apply col-span-2;
   }
   .site-sidebar__accent-button {
-    @apply aspect-square w-auto h-3 p-4 min-h-0
+    @apply aspect-square w-auto h-3 p-4 min-h-0;
   }
 }
+
 
 
 
