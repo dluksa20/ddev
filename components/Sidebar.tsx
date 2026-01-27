@@ -10,16 +10,16 @@ import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { THEMES } from '@/lib/constants';
 
+
 type CloseProps = {
     onClose: () => void;
 }
 
 const Sidebar = ({ onClose }: CloseProps) => {
 
-    const [activeColor, setActiveColor] = useState<string | null>(null);
-    const [activeTheme, setActiveTheme] = useState('midnight-eclipse');
+    const [activeColor, setActiveColor] = useState('');
+    const [activeTheme, setActiveTheme] = useState('');
 
-    const [active, setActive] = useState(false)
     const { theme, setTheme } = useTheme()
 
 
@@ -33,22 +33,17 @@ const Sidebar = ({ onClose }: CloseProps) => {
         localStorage.setItem('accent-color', accentColor)
     }
 
-    const switchTheme = (t: String) => {
-        setTheme(t)
+    useEffect(() => {
+        const savedColor = localStorage.getItem('accent-color');
+        if (savedColor) {
+            setActiveColor(savedColor);
+        }
+        if (theme) {
+            localStorage.setItem('theme', theme)
+            setActiveTheme(theme);
+        }
+    }, [theme]);
 
-    }
-
-    // useEffect(() => {
-    //     const savedAccent = localStorage.getItem('accent-color')
-
-    //     if (savedAccent) {
-    //         document.documentElement.style.setProperty(
-    //             '--color-accent',
-    //             `var(--color-${savedAccent})`
-    //         )
-    //         setActiveColor(savedAccent)
-    //     }
-    // }, [])
 
 
 

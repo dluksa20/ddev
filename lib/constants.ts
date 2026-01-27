@@ -25,6 +25,6 @@ export const ACCENT_COLORS = [
 
 export const THEMES = [
     { id: "palenight", label: "Palenight" },
-    { id: "sunset-horizon", label: "Sunset Horizon" },
-    { id: "forest-breeze", label: "Forest Breeze" },
+    { id: "void", label: "Void" },
+    { id: "ashlight", label: "Ashlight" },
 ]

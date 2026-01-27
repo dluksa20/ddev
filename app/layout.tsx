@@ -1,6 +1,6 @@
 import Header from "@/components/Header"
 import "./globals.css"
-import { ThemeProvider } from "next-themes"
+import ThemeProvider from "@/components/ThemeProvider"
 
 
 export default function RootLayout({
@@ -8,16 +8,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-background text-foreground">
-        <ThemeProvider attribute="class" themes={[
-            'midnight-eclipse',
-            'sunset-horizon',
-            'forest-breeze',
-        ]}
-            defaultTheme="midnight-eclipse">
+        <ThemeProvider>
           <Header />
           {children}
         </ThemeProvider>
@@ -25,4 +20,5 @@ export default function RootLayout({
     </html>
   )
 }
+
 
