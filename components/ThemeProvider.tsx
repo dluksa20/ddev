@@ -7,8 +7,8 @@ type ThemeProviderProps = {
     children: ReactNode
 }
 
-const DEFAULT_ACCENT = 'sky-blue'
-const DEFAULT_THEME = 'ashlight'
+const DEFAULT_ACCENT = 'sage-green'
+const DEFAULT_THEME = 'void'
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [mounted, setMounted] = useState(false)
@@ -32,7 +32,6 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
     return (
         <NextThemesProvider
             attribute="class"
-            enableSystem={true}
             themes={['palenight', 'void', 'ashlight']}
             storageKey="theme" 
         >

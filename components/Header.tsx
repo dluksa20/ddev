@@ -4,7 +4,7 @@ import Link from "next/link"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import Sidebar from "./Sidebar"
 import { useState } from "react"
-import Button from "./Button"
+import Button from "./ui/Button"
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);

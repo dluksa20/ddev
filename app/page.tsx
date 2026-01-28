@@ -1,7 +1,7 @@
 // import { ThemeSwitcher } from '@/components/ThemeSwitcher'
 'use client'
 import React from 'react'
-import Button from '@/components/Button'
+import Button from '@/components/ui/Button'
 import { useTheme } from 'next-themes';
 
 const page = () => {
