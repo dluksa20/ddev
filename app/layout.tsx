@@ -8,17 +8,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-background text-foreground">
+      <body className="bg-background text-foreground min-h-screen">
         <ThemeProvider>
-          <Header />
-          {children}
+          <div className="flex min-h-screen flex-col">
+            <Header />
+
+            {/* Page content */}
+            <main className="flex flex-1 items-center justify-center">
+              {children}
+            </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-

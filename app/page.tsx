@@ -1,14 +1,14 @@
-// import { ThemeSwitcher } from '@/components/ThemeSwitcher'
-'use client'
-import React from 'react'
-import Button from '@/components/ui/Button'
-import { useTheme } from 'next-themes';
 
 const page = () => {
-  const { theme, setTheme } = useTheme()
   return (
-    <>
-    </>
+    <div className='max-w-360'>
+      <section>
+        <h1>
+          Hey! I'm 
+          <span className='text-accent'> Dovydas Luksa</span>
+        </h1>
+      </section>
+    </div>
   )
 }
 

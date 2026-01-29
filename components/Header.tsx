@@ -5,9 +5,15 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 import Sidebar from "./Sidebar"
 import { useState } from "react"
 import Button from "./ui/Button"
+import { usePathname } from "next/navigation"
 
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const pathname = usePathname()
+    const formatPath = (path: string) => {
+        if (path === '/') return '~'
+        return `~${path}`
+    }
 
     const openSidebar = () => {
         setIsSidebarOpen(true)
@@ -15,21 +21,23 @@ const Header = () => {
     const closeSidebar = () => {
         setIsSidebarOpen(false)
     }
-    
+
 
     return (
         <header className="site-header">
             <div className="site-header__inner">
-
                 <div className="site-header__title">
-                    <h1>
+                    <h2 className="text-accent font-medium">
                         ddev@dluksa.dev
-                        <span className="text-foreground">: </span>
-                        <span className="text-primary">~</span>
-                        <span className="text-foreground">$</span>
-                    </h1>
-                    <div className="site-header__cursor">
+                        <span className="text-text font-light">:</span>
+                        <span className="text-primary font-light">~</span>
+                        <span className="text-text">$ </span>
+                        <span className="font-light text-text">
 
+                            {pathname}
+                        </span>
+                    </h2>
+                    <div className="site-header__cursor">
                     </div>
                 </div>
                 <div className="site-header__nav">
@@ -47,7 +55,7 @@ const Header = () => {
                                 <FaChevronLeft />}
                         </Button>
                         {isSidebarOpen &&
-                            <Sidebar onClose={closeSidebar}/>
+                            <Sidebar onClose={closeSidebar} />
                         }
                     </div>
                 </div>
