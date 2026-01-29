@@ -10,10 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-background text-foreground min-h-screen">
+      <body className="bg-background text-foreground min-h-screen scrollbar">
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
-            <Header />
+            <Header/>
 
             {/* Page content */}
             <main className="flex flex-1 items-center justify-center">

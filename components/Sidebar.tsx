@@ -12,6 +12,7 @@ import { IoMail } from 'react-icons/io5'
 import { links } from '@/lib/constants'
 import ThemeSwitcher from './ThemeSwitcher'
 import AccentSwitcher from './AccentSwitcher'
+import { BiBold } from 'react-icons/bi'
 
 type SidebarProps = {
     onClose: () => void
@@ -26,7 +27,7 @@ const Sidebar = ({ onClose }: SidebarProps) => {
                     {/* Sidebar Header */}
                     <section className="site-sidebar__header">
                         <div className="flex justify-between items-center">
-                            <h1>Navigation</h1>
+                            <h1 className='text-accent'>Navigation</h1>
                             <Button size="sm" className="w-fit" onClick={onClose}>
                                 <FaChevronRight />
                             </Button>
