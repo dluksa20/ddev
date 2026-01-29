@@ -10,10 +10,6 @@ import { usePathname } from "next/navigation"
 const Header = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const pathname = usePathname()
-    const formatPath = (path: string) => {
-        if (path === '/') return '~'
-        return `~${path}`
-    }
 
     const openSidebar = () => {
         setIsSidebarOpen(true)
@@ -27,15 +23,16 @@ const Header = () => {
         <header className="site-header">
             <div className="site-header__inner">
                 <div className="site-header__title">
-                    <h2 className="text-accent font-medium">
+                    <h2 className="text-accent font-bold">
                         ddev@dluksa.dev
                         <span className="text-text font-light">:</span>
                         <span className="text-primary font-light">~</span>
-                        <span className="text-text">$ </span>
-                        <span className="font-light text-text">
+                        {
+                            pathname === '/' ? <span className="text-text font-light">$ </span> : (
+                                < span className="font-light text-text">{pathname}<span className="text-accent font-medium">$</span></span>)
 
-                            {pathname}
-                        </span>
+                        }
+
                     </h2>
                     <div className="site-header__cursor">
                     </div>
@@ -61,7 +58,7 @@ const Header = () => {
                 </div>
             </div>
 
-        </header>
+        </header >
     )
 }
 
