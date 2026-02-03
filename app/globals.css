@@ -134,6 +134,9 @@
   h3 {
     @apply text-[1rem]
   }
+  p {
+    @apply text-text text-[1.2rem] leading-relaxed;
+  }
   a {
     @apply text-[1rem] text-text;
   }
@@ -189,7 +192,7 @@
     @apply sticky top-0 z-20 w-full flex bg-background/50 backdrop-blur-[10px] justify-center items-center text-accent font-display p-5;
   }
   .site-header__inner {
-    @apply w-full flex items-center justify-between h-16 px-4  p-3;
+    @apply w-full flex items-center justify-between h-10 px-4  p-3;
   }
 
   .site-header__title {
