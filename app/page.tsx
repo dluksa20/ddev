@@ -1,134 +1,125 @@
+import React from 'react';
+
 const Page = () => {
   return (
-    <div className="flex flex-col gap-12 max-w-5xl w-full h-full p-5 mx-auto">
-
-      {/* SECTION 1 — INTRO */}
-      <section className="relative w-full h-100 p-6 font-mono tracking-tight text-accent bg-background-elevated border-l-4 border-accent shadow-[0_0_20px_rgba(0,0,0,0.4)]">
-        <h1 className="text-xl mb-4">
-          <span className="text-accent">$</span>{' '}
-          <span className="opacity-90">Hey! I&apos;m</span>
-          <span className="font-semibold"> Dovydas</span>
-        </h1>
-
-        <p className="leading-relaxed text-text max-w-prose">
-          <span className="text-primary mr-1">&gt;</span>
-          I’m an aspiring full-stack developer building modern and scalable web applications
-          using Next.js and Django. I enjoy working across the stack—from crafting intuitive
-          user interfaces to designing clean, reliable backend systems—and I care deeply about
-          performance, maintainability, and developer experience.
-        </p>
-
-        <span className="inline-block mt-4 text-accent opacity-80">█</span>
-
-        <div className="pointer-events-none absolute inset-0 shadow-[inset_0_0_40px_rgba(0,255,120,0.05)]" />
-      </section>
-
-      {/* SECTION 2 — SKILLS */}
-      <section className="relative p-6 font-mono text-accent bg-background-elevated border-l-4 border-accent shadow-[0_0_20px_rgba(0,0,0,0.4)]">
-        <h2 className="text-lg mb-4">
-          <span className="text-accent">$</span>{' '}
-          <span className="opacity-80">ls skills/</span>
-        </h2>
-
-        <div className="space-y-3 text-text">
-          <p>
-            <span className="text-primary mr-2">&gt;</span>
-            <span className="opacity-80">frontend:</span>{' '}
-            <span className="text-accent">Next.js, React, TypeScript, Tailwind CSS</span>
-          </p>
-
-          <p>
-            <span className="text-primary mr-2">&gt;</span>
-            <span className="opacity-80">backend:</span>{' '}
-            <span className="text-accent">Django, Django REST Framework, FastAPI</span>
-          </p>
-
-          <p>
-            <span className="text-primary mr-2">&gt;</span>
-            <span className="opacity-80">databases:</span>{' '}
-            <span className="text-accent">PostgreSQL, SQLite</span>
-          </p>
-
-          <p>
-            <span className="text-primary mr-2">&gt;</span>
-            <span className="opacity-80">tooling:</span>{' '}
-            <span className="text-accent">Git, Docker, Linux, GitHub Actions</span>
-          </p>
+    /* FULL SCREEN WRAPPER */
+    <div className="h-screen w-screen bg-background text-text selection:bg-accent/30 font-mono overflow-hidden flex flex-col">
+      
+      {/* 1. FIXED WINDOW HEADER */}
+      <div className="flex items-center justify-between px-5 py-3 bg-background-elevated border-b border-accent/10 z-10 shrink-0">
+        <div className="flex gap-2">
+          <div className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-inner" />
+          <div className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-inner" />
+          <div className="w-3 h-3 rounded-full bg-[#27c93f] shadow-inner" />
         </div>
+        <div className="hidden md:block text-[11px] uppercase tracking-[0.2em] text-accent/40 font-bold">
+          dovydas — zsh — 144x60
+        </div>
+        <div className="text-[10px] text-accent/60 md:w-12 text-right">
+          {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+        </div>
+      </div>
 
-        <span className="inline-block mt-4 text-accent opacity-80">█</span>
-      </section>
+      {/* 2. SCROLLABLE CONTENT AREA */}
+      <main className="flex-1 overflow-y-auto relative p-6 md:p-12 custom-scrollbar">
+        {/* CRT Scanline Overlay */}
+        <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.03)_50%),linear-gradient(90deg,rgba(255,0,0,0.005),rgba(0,255,0,0.002),rgba(0,0,255,0.005))] bg-[length:100%_4px,4px_100%] z-50" />
 
-      {/* SECTION 3 — PROJECTS */}
-      <section className="relative p-6 font-mono text-accent bg-background-elevated border-l-4 border-accent shadow-[0_0_20px_rgba(0,0,0,0.4)]">
-        <h2 className="text-lg mb-6">
-          <span className="text-accent">$</span>{' '}
-          <span className="opacity-80">ls projects/</span>
-        </h2>
-
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="max-w-7xl mx-auto space-y-24 pb-20">
           
-          {/* PROJECT CARD */}
-          <div className="border border-accent/30 p-4">
-            <h3 className="text-base mb-2 text-accent font-semibold">
-              next-dashboard
-            </h3>
-
-            <p className="text-text text-sm mb-3">
-              A full-stack analytics dashboard built with Next.js, Django REST,
-              and PostgreSQL. Focused on performance and clean API design.
-            </p>
-
-            <div className="flex gap-4 text-xs text-accent/80">
-              <span>★ 124</span>
-              <span>⑂ 32</span>
-              <span>PRs 14</span>
+          {/* SECTION 1 — INTRO */}
+          <section className="space-y-6">
+            <div className="flex items-center gap-4">
+              <span className="text-accent/30 text-xs font-bold">USR</span>
+              <div className="h-px flex-1 bg-accent/10" />
             </div>
-          </div>
-
-          {/* PROJECT CARD */}
-          <div className="border border-accent/30 p-4">
-            <h3 className="text-base mb-2 text-accent font-semibold">
-              api-starter
-            </h3>
-
-            <p className="text-text text-sm mb-3">
-              Opinionated Django + FastAPI starter template with authentication,
-              Docker setup, and CI workflows.
-            </p>
-
-            <div className="flex gap-4 text-xs text-accent/80">
-              <span>★ 89</span>
-              <span>⑂ 21</span>
-              <span>PRs 9</span>
+            <div className="space-y-4">
+              <h1 className="text-3xl md:text-5xl font-bold tracking-tighter">
+                <span className="text-accent">$</span> WHOAMI
+              </h1>
+              <p className="text-xl md:text-2xl text-text/70 leading-relaxed max-w-4xl border-l-4 border-accent pl-6">
+                Full-stack developer building <span className="text-white font-semibold">robust digital architectures</span>. 
+                Based in the terminal, specializing in Next.js, Django, and the art of clean code.
+              </p>
             </div>
-          </div>
+          </section>
 
-          {/* PROJECT CARD */}
-          <div className="border border-accent/30 p-4">
-            <h3 className="text-base mb-2 text-accent font-semibold">
-              portfolio-v3
-            </h3>
-
-            <p className="text-text text-sm mb-3">
-              Personal portfolio built with Next.js and Tailwind, inspired by
-              terminal interfaces and documentation layouts.
-            </p>
-
-            <div className="flex gap-4 text-xs text-accent/80">
-              <span>★ 56</span>
-              <span>⑂ 12</span>
-              <span>PRs 4</span>
+          {/* SECTION 2 — SYSTEM SPECS (SKILLS) */}
+          <section className="space-y-8">
+            <div className="flex items-center gap-4">
+              <span className="text-accent/30 text-xs font-bold">SYS</span>
+              <div className="h-px flex-1 bg-accent/10" />
             </div>
-          </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {[
+                { title: 'Runtime', items: ['Node.js', 'Python 3.11', 'TypeScript'] },
+                { title: 'Frameworks', items: ['Next.js 14', 'Django', 'FastAPI', 'React'] },
+                { title: 'Infrastructure', items: ['PostgreSQL', 'Docker', 'AWS', 'Nginx'] }
+              ].map((spec) => (
+                <div key={spec.title} className="space-y-3">
+                  <h3 className="text-accent uppercase text-xs tracking-widest font-black italic">{spec.title}</h3>
+                  <ul className="space-y-2">
+                    {spec.items.map(item => (
+                      <li key={item} className="text-text/80 flex items-center gap-2">
+                        <span className="w-1 h-1 bg-accent rounded-full" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
 
+          {/* SECTION 3 — DEPLOYMENTS (PROJECTS) */}
+          <section className="space-y-8">
+            <div className="flex items-center gap-4">
+              <span className="text-accent/30 text-xs font-bold">EXE</span>
+              <div className="h-px flex-1 bg-accent/10" />
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              {[
+                { name: 'nebula-core', status: 'online', stack: 'Next.js / Django' },
+                { name: 'synth-api', status: 'offline', stack: 'FastAPI / Redis' },
+              ].map((proj) => (
+                <div key={proj.name} className="bg-background-elevated border border-accent/10 p-6 hover:border-accent/40 transition-colors group cursor-pointer">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xl font-bold group-hover:text-accent transition-colors">./{proj.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <span className={`w-2 h-2 rounded-full ${proj.status === 'online' ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
+                      <span className="text-[10px] uppercase opacity-50">{proj.status}</span>
+                    </div>
+                  </div>
+                  <p className="text-text/60 text-sm mb-6">
+                    A high-performance module designed for real-time data processing and visual synthesis.
+                  </p>
+                  <div className="text-[10px] font-mono text-accent/60 tracking-widest uppercase">
+                    Build: {proj.stack}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
+      </main>
 
-        <span className="inline-block mt-6 text-accent opacity-80">█</span>
-      </section>
-
+      {/* 3. FIXED COMMAND INPUT */}
+      <footer className="shrink-0 bg-background-elevated border-t border-accent/10 p-4 md:px-12">
+        <div className="max-w-7xl mx-auto flex items-center gap-3">
+          <span className="text-accent font-bold shrink-0">λ dovydas ~</span>
+          <input 
+            type="text" 
+            placeholder="enter command (try 'help')..." 
+            className="bg-transparent border-none outline-none text-text w-full focus:ring-0 placeholder:text-accent/20"
+          />
+          <div className="hidden md:block text-[10px] text-accent/30 uppercase tracking-tighter">
+            UTF-8
+          </div>
+        </div>
+      </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
