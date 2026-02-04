@@ -18,15 +18,15 @@ const Page = () => {
           {/* SECTION 1 — INTRO */}
           <section className="space-y-6">
             <div className="flex items-center gap-4">
-              <span className="text-accent/30 text-xs font-bold">USR</span>
-              <div className="h-px flex-1 bg-accent/10" />
+              <span className="text-accent/60 text-xs font-bold">USR</span>
+              <div className="h-px flex-1 bg-accent/40" />
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 font-display">
               <h1 className="text-3xl md:text-5xl font-bold tracking-tighter">
-                <span className="text-accent">$</span> WHOAMI
+                <span className="text-accent">$</span> WHO<span className='text-accent'>AM</span>I
               </h1>
               <p className="text-xl md:text-2xl text-text/70 leading-relaxed max-w-4xl border-l-4 border-accent pl-6">
-                Full-stack developer building <span className="text-white font-semibold">robust digital architectures</span>. 
+                Full-stack developer building <span className="text-accent font-semibold">robust digital architectures</span>. 
                 Based in the terminal, specializing in Next.js, Django, and the art of clean code.
               </p>
             </div>
@@ -35,8 +35,8 @@ const Page = () => {
           {/* SECTION 2 — SYSTEM SPECS (SKILLS) */}
           <section className="space-y-8">
             <div className="flex items-center gap-4">
-              <span className="text-accent/30 text-xs font-bold">SYS</span>
-              <div className="h-px flex-1 bg-accent/10" />
+              <span className="text-accent/60 text-xs font-bold">SYS</span>
+              <div className="h-px flex-1 bg-accent/40" />
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -62,8 +62,8 @@ const Page = () => {
           {/* SECTION 3 — DEPLOYMENTS (PROJECTS) */}
           <section className="space-y-8">
             <div className="flex items-center gap-4">
-              <span className="text-accent/30 text-xs font-bold">EXE</span>
-              <div className="h-px flex-1 bg-accent/10" />
+              <span className="text-accent/60 text-xs font-bold">EXE</span>
+              <div className="h-px flex-1 bg-accent/40" />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
