@@ -17,25 +17,31 @@ const TerminalSection = ({
   children
 }: TerminalSectionProps) => {
   return (
-    <section className={`space-y-6 ${className}`}>
-      {/* Section Header - Minimal */}
-      <div className="flex items-baseline gap-3">
-        <span className="text-accent/40 text-xs font-mono">[{label}]</span>
-        <div className="h-px flex-1 bg-accent/10" />
+    <section className={`space-y-7 ${className} px-10 font-display`}>
+      <div className="flex items-center gap-5 group">
+          <span className="text-accent/50 font-semibold  text-xs">
+          <span className='text-primary'>&gt;&gt; </span>
+           /{label}
+          </span>
+        <div className="h-px flex-1 bg-accent/20" />
       </div>
 
-      {/* Section Content */}
-      <div className="space-y-5 pl-8 border-l border-accent/20">
-        <h1 className="text-2xl md:text-4xl font-medium tracking-tight text-text">
+      {/* Content area */}
+      <div className="space-y-5 pl-6">
+        {/* Simple monospace title */}
+        <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-text/90 font-mono">
           {title}
         </h1>
         
+        {/* Clean description box */}
         {description && (
-          <p className="text-base md:text-lg text-text/60 leading-relaxed max-w-3xl">
-            {description}
-          </p>
+          <div className="pl-5 py-3 border-l border-accent/30">
+            <p className="text-sm md:text-base text-text/65 leading-relaxed max-w-4xl">
+              {description}
+            </p>
+          </div>
         )}
-
+        
         {children}
       </div>
     </section>

@@ -11,13 +11,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-surface-base text-fg-base min-h-screen scrollbar overflow-y-auto">
+      <body className="bg-surface-base text-fg-base min-h-screen scrollbar">
         <ThemeProvider>
-          <div className="flex min-h-screen flex-col surface-overlay-dark">
+          <div className="flex min-h-screen flex-col">
             <Header />
 
             {/* Page content */}
-            <main className="flex flex-1 items-center justify-center ">
+            <main className="flex flex-1 items-center justify-center">
               {children}
             </main>
             <TerminalFooter />
