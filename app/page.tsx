@@ -1,6 +1,8 @@
 'use client'
 import React, { ReactNode } from 'react';
 import TerminalSection from '@/components/TerminalSection';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
+import AccentSwitcher from '@/components/AccentSwitcher';
 
 const ProjectCard = ({ name, tech, status, desc }: any) => (
   <div className="border border-border/60 p-5 hover:border-accent/40 hover:bg-zinc-900/30 transition-all group/card">
@@ -27,9 +29,9 @@ const ProjectCard = ({ name, tech, status, desc }: any) => (
 const Page = () => {
   return (
     <div className="min-h-screen w-full bg-surface-base text-fg-base font-mono  selection:bg-accent/30">
-      
+
       <div className=" max-w-360 mx-auto sm:p-10 md:p-12 xl:pd-0">
-        
+
         {/* HEADER AREA */}
         <header className="mb-10">
           <div className="text-[12px] text-fg-base mb-2 tracking-[0.4em] uppercase">System.Terminal.Initialize()</div>
@@ -37,17 +39,17 @@ const Page = () => {
         </header>
 
         <div className="flex flex-col w-full">
-          
+
           {/* SECTION 01: WHOAMI */}
-          <TerminalSection 
-            label="usr" 
+          <TerminalSection
+            label="usr"
             title={
               <h1 className="">
                 <span className="text-accent">$ </span>
                 Who
                 <span className="text-accent">Am
                   <span className='text-fg-base'></span>
-                  </span>I
+                </span>I
               </h1>
             }
           >
@@ -60,15 +62,15 @@ const Page = () => {
           </TerminalSection>
 
           {/* SECTION 02: TOOLS (SKILLS) */}
-          <TerminalSection 
-            label="sys" 
+          <TerminalSection
+            label="sys"
             title={<h1 className="">
-                <span className='text-accent'>$ </span>
-                <span className="">Core</span>
-                <span className='text-accent'>S</span>
-                <span className="">tack</span>
-              </h1>}
-          > 
+              <span className='text-accent'>$ </span>
+              <span className="">Core</span>
+              <span className='text-accent'>S</span>
+              <span className="">tack</span>
+            </h1>}
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div>
                 <h4 className="text-[10px] font-black text-zinc-600 mb-3 tracking-widest">FRONTEND_ENV</h4>
@@ -98,40 +100,58 @@ const Page = () => {
           </TerminalSection>
 
           {/* SECTION 03: DEPLOYMENTS (PROJECTS) */}
-          <TerminalSection 
-            label="exe" 
+          <TerminalSection
+            label="exe"
             title={<h1 className="">
-                <span className='text-accent'>$ </span>
-                <span className="">Active</span>
-                <span className='text-accent'>P</span>
-                <span className="">rojects</span>
-              </h1>}
+              <span className='text-accent'>$ </span>
+              <span className="">Active</span>
+              <span className='text-accent'>P</span>
+              <span className="">rojects</span>
+            </h1>}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <ProjectCard 
+              <ProjectCard
                 name="AETHER_ENGINE"
                 status="LIVE"
                 desc="A distributed task processing engine built to handle millions of websocket events in real-time."
                 tech={['Go', 'Redis', 'Next.js']}
               />
-              <ProjectCard 
+              <ProjectCard
                 name="VOID_OS"
                 status="LIVE"
                 desc="A browser-based terminal operating system with a custom file system and command-line parser."
                 tech={['TypeScript', 'Tailwind', 'Zustand']}
               />
-              <ProjectCard 
+              <ProjectCard
                 name="SPECTER_API"
                 status="OFFLINE"
                 desc="High-performance GraphQL gateway for aggregating disparate microservice data sources."
                 tech={['Apollo', 'Node.js', 'Postgres']}
               />
-              <ProjectCard 
+              <ProjectCard
                 name="NEBULA_DASH"
                 status="LIVE"
                 desc="Financial analytics dashboard with real-time SVG charting and predictive trend analysis."
                 tech={['D3.js', 'React', 'FastAPI']}
               />
+            </div>
+          </TerminalSection>
+
+          <TerminalSection label='bin' title={
+            <h1>
+              <span className='text-accent'>$ </span>
+              <span>Ui</span>
+              <span className='text-accent'>S</span>
+              <span>ettings</span>
+            </h1>
+          }>
+            <div className='flex justify-center flex-col flex-1'>
+              <div>
+                <ThemeSwitcher />
+              </div>
+              <div className='flex items-center justify-center'>
+                <AccentSwitcher />
+              </div>
             </div>
           </TerminalSection>
 
