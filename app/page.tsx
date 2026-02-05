@@ -1,113 +1,270 @@
-import React from 'react';
+import TerminalSection from '@/components/TerminalSection'
+import React from 'react'
 
 const Page = () => {
   return (
-    /* FULL SCREEN WRAPPER */
-    <div className="h-screen w-screen bg-background text-text selection:bg-accent/30 font-mono overflow-hidden flex flex-col">
-      
-      {/* 1. FIXED WINDOW HEADER */}
-      
+    /* FULL SCREEN TERMINAL CANVAS */
+    <div className="relative h-screen w-screen bg-surface-base text-text font-mono overflow-hidden">
 
-      {/* 2. SCROLLABLE CONTENT AREA */}
-      <main className="flex-1 overflow-y-auto relative p-6 md:p-12 custom-scrollbar">
-        {/* CRT Scanline Overlay */}
-        <div className="pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.03)_50%),linear-gradient(90deg,rgba(255,0,0,0.005),rgba(0,255,0,0.002),rgba(0,0,255,0.005))] bg-[length:100%_4px,4px_100%] z-50" />
+      {/* SCROLLABLE CONTENT */}
 
-        <div className="max-w-7xl mx-auto space-y-24 pb-20">
-          
-          {/* SECTION 1 — INTRO */}
-          <section className="space-y-6">
-            <div className="flex items-center gap-4">
-              <span className="text-accent/60 text-xs font-bold">USR</span>
-              <div className="h-px flex-1 bg-accent/40" />
-            </div>
-            <div className="space-y-4 font-display">
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tighter">
-                <span className="text-accent">$</span> WHO<span className='text-accent'>AM</span>I
-              </h1>
-              <p className="text-xl md:text-2xl text-text/70 leading-relaxed max-w-4xl border-l-4 border-accent pl-6">
-                Full-stack developer building <span className="text-accent font-semibold">robust digital architectures</span>. 
-                Based in the terminal, specializing in Next.js, Django, and the art of clean code.
-              </p>
-            </div>
-          </section>
+        {/* CRT SCANLINE OVERLAY */}
+        <div
+          className="
+            pointer-events-none fixed inset-0 z-40
+            opacity-[0.08]
+            mix-blend-overlay
+            bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)]
+            bg-[length:100%_3px]
+            animate-scan
+          "
+        />
 
-          {/* SECTION 2 — SYSTEM SPECS (SKILLS) */}
-          <section className="space-y-8">
-            <div className="flex items-center gap-4">
-              <span className="text-accent/60 text-xs font-bold">SYS</span>
-              <div className="h-px flex-1 bg-accent/40" />
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* CONTENT CONTAINER */}
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-32 pb-32">
+
+          {/* SECTION — INTRO */}
+          <TerminalSection
+            className="pt-20"
+            label="USR"
+            title={
+              <div className="flex items-center gap-3">
+                <span className="text-accent">$</span>
+                <span>WHO</span>
+                <span className="text-accent">AM</span>
+                <span>I</span>
+                <span className="w-3 h-10 md:h-12 bg-accent animate-blink inline-block ml-2" />
+              </div>
+            }
+            description={
+              <>
+                Full-stack developer building{' '}
+                <span className="text-accent font-semibold">
+                  robust digital architectures
+                </span>
+                . Based in the terminal, specializing in{' '}
+                <span className="text-accent/80">Next.js</span>,{' '}
+                <span className="text-accent/80">Django</span>, and the art of clean code.
+              </>
+            }
+          />
+
+          {/* SECTION — SYSTEM SPECS */}
+          <TerminalSection
+            label="SYS"
+            title={
+              <div className="flex items-center gap-3">
+                <span className="text-accent">&gt;&gt;</span>
+                <span>SYSTEM_SPECS</span>
+              </div>
+            }
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
               {[
-                { title: 'Runtime', items: ['Node.js', 'Python 3.11', 'TypeScript'] },
-                { title: 'Frameworks', items: ['Next.js 14', 'Django', 'FastAPI', 'React'] },
-                { title: 'Infrastructure', items: ['PostgreSQL', 'Docker', 'AWS', 'Nginx'] }
+                {
+                  title: 'Runtime',
+                  icon: '⚡',
+                  items: ['Node.js 20.x', 'Python 3.11', 'TypeScript 5.x'],
+                },
+                {
+                  title: 'Frameworks',
+                  icon: '🔧',
+                  items: ['Next.js 14', 'Django 5.0', 'FastAPI', 'React 18'],
+                },
+                {
+                  title: 'Infrastructure',
+                  icon: '🏗️',
+                  items: ['PostgreSQL', 'Docker', 'AWS', 'Nginx'],
+                },
               ].map((spec) => (
-                <div key={spec.title} className="space-y-3">
-                  <h3 className="text-accent uppercase text-xs tracking-widest font-black italic">{spec.title}</h3>
-                  <ul className="space-y-2">
-                    {spec.items.map(item => (
-                      <li key={item} className="text-text/80 flex items-center gap-2">
-                        <span className="w-1 h-1 bg-accent rounded-full" /> {item}
+                <div
+                  key={spec.title}
+                  className="
+                    bg-surface-elevated/40
+                    border border-accent/15
+                    p-6
+                    transition-all duration-300
+                    hover:border-accent/50
+                    hover:-translate-y-1
+                  "
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-2xl">{spec.icon}</span>
+                    <h3 className="text-accent uppercase text-xs tracking-widest font-black">
+                      {spec.title}
+                    </h3>
+                  </div>
+
+                  <ul className="space-y-3">
+                    {spec.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-center gap-3 text-text/70 text-sm"
+                      >
+                        <span className="text-accent text-xs">▸</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               ))}
             </div>
-          </section>
+          </TerminalSection>
 
-          {/* SECTION 3 — DEPLOYMENTS (PROJECTS) */}
-          <section className="space-y-8">
-            <div className="flex items-center gap-4">
-              <span className="text-accent/60 text-xs font-bold">EXE</span>
-              <div className="h-px flex-1 bg-accent/40" />
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {/* SECTION — DEPLOYMENTS */}
+          <TerminalSection
+            label="EXE"
+            title={
+              <div className="flex items-center gap-3">
+                <span className="text-accent">~/</span>
+                <span>DEPLOYMENTS</span>
+              </div>
+            }
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl">
               {[
-                { name: 'nebula-core', status: 'online', stack: 'Next.js / Django' },
-                { name: 'synth-api', status: 'offline', stack: 'FastAPI / Redis' },
+                {
+                  name: 'nebula-core',
+                  status: 'online',
+                  stack: 'Next.js / Django',
+                  description:
+                    'High-performance module for real-time data processing and visual synthesis.',
+                  uptime: '99.8%',
+                  version: 'v2.4.1',
+                },
+                {
+                  name: 'synth-api',
+                  status: 'offline',
+                  stack: 'FastAPI / Redis',
+                  description:
+                    'Lightweight API gateway handling async task queues and caching.',
+                  uptime: '94.2%',
+                  version: 'v1.9.3',
+                },
+                {
+                  name: 'void-dashboard',
+                  status: 'online',
+                  stack: 'React / PostgreSQL',
+                  description:
+                    'Real-time analytics dashboard with WebSocket streaming.',
+                  uptime: '99.1%',
+                  version: 'v3.0.0',
+                },
+                {
+                  name: 'flux-engine',
+                  status: 'maintenance',
+                  stack: 'Python / Docker',
+                  description:
+                    'Containerized microservice orchestrator with auto-scaling.',
+                  uptime: '97.5%',
+                  version: 'v1.5.2',
+                },
               ].map((proj) => (
-                <div key={proj.name} className="bg-background-elevated border border-accent/10 p-6 hover:border-accent/40 transition-colors group cursor-pointer">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-bold group-hover:text-accent transition-colors">./{proj.name}</h3>
+                <div
+                  key={proj.name}
+                  className="
+                    bg-surface-elevated/40
+                    border border-accent/15
+                    p-6
+                    transition-all duration-300
+                    hover:border-accent/40
+                    hover:-translate-y-1
+                  "
+                >
+                  <div className="flex justify-between items-start mb-4">
                     <div className="flex items-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${proj.status === 'online' ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
-                      <span className="text-[10px] uppercase opacity-50">{proj.status}</span>
+                      <span className="text-accent/60 text-sm">./</span>
+                      <h3 className="text-lg font-bold">{proj.name}</h3>
+                    </div>
+
+                    <span
+                      className={`
+                        w-2 h-2 rounded-full
+                        ${proj.status === 'online' && 'bg-green-400 shadow-[0_0_6px_#4ade80]'}
+                        ${proj.status === 'maintenance' && 'bg-yellow-400 shadow-[0_0_6px_#facc15]'}
+                        ${proj.status === 'offline' && 'bg-red-400'}
+                      `}
+                    />
+                  </div>
+
+                  <p className="text-sm text-text/60 mb-6 max-w-md">
+                    {proj.description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 text-xs mb-4 pb-4 border-b border-accent/10">
+                    <div>
+                      <div className="text-accent/40 uppercase tracking-wider">
+                        Version
+                      </div>
+                      <div>{proj.version}</div>
+                    </div>
+                    <div>
+                      <div className="text-accent/40 uppercase tracking-wider">
+                        Uptime
+                      </div>
+                      <div>{proj.uptime}</div>
                     </div>
                   </div>
-                  <p className="text-text/60 text-sm mb-6">
-                    A high-performance module designed for real-time data processing and visual synthesis.
-                  </p>
-                  <div className="text-[10px] font-mono text-accent/60 tracking-widest uppercase">
-                    Build: {proj.stack}
+
+                  <div className="flex justify-between text-[10px] uppercase tracking-widest text-accent/60">
+                    <span>{proj.stack}</span>
+                    <span>→</span>
                   </div>
                 </div>
               ))}
             </div>
-          </section>
-        </div>
-      </main>
+          </TerminalSection>
 
-      {/* 3. FIXED COMMAND INPUT */}
-      <footer className="shrink-0 bg-background-elevated border-t border-accent/10 p-4 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center gap-3">
-          <span className="text-accent font-bold shrink-0">λ dovydas ~</span>
-          <input 
-            type="text" 
-            placeholder="enter command (try 'help')..." 
-            className="bg-transparent border-none outline-none text-text w-full focus:ring-0 placeholder:text-accent/20"
-          />
-          <div className="hidden md:block text-[10px] text-accent/30 uppercase tracking-tighter">
-            UTF-8
-          </div>
+          {/* SECTION — CONTACT */}
+          <TerminalSection
+            label="NET"
+            title={
+              <div className="flex items-center gap-3">
+                <span className="text-accent">@</span>
+                <span>CONNECT</span>
+              </div>
+            }
+            description={
+              <>
+                Let’s collaborate on something{' '}
+                <span className="text-accent font-semibold">extraordinary</span>.
+              </>
+            }
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl">
+              {[
+                { label: 'GitHub', value: '@dovydas', icon: '⚡' },
+                { label: 'Email', value: 'dev@terminal.io', icon: '✉' },
+                { label: 'LinkedIn', value: '/in/dovydas', icon: '💼' },
+                { label: 'Discord', value: 'dovydas#0001', icon: '💬' },
+              ].map((contact) => (
+                <div
+                  key={contact.label}
+                  className="
+                    bg-surface-elevated/40
+                    border border-accent/20
+                    p-4
+                    transition-all duration-300
+                    hover:border-accent/60
+                    hover:-translate-y-1
+                  "
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xl">{contact.icon}</span>
+                    <div className="text-[10px] uppercase tracking-widest text-accent/50">
+                      {contact.label}
+                    </div>
+                  </div>
+                  <div className="text-sm text-text/80">
+                    {contact.value}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </TerminalSection>
         </div>
-      </footer>
     </div>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page
