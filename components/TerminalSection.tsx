@@ -1,51 +1,20 @@
 // components/TerminalSection.tsx
-import React from 'react'
+import { ReactNode } from "react";
 
-interface TerminalSectionProps {
-  label: string
-  title: React.ReactNode
-  description?: React.ReactNode
-  className?: string
-  children?: React.ReactNode
-}
-
-const TerminalSection = ({ 
-  label, 
-  title, 
-  description, 
-  className = '',
-  children
-}: TerminalSectionProps) => {
-  return (
-    <section className={`space-y-7 ${className} px-10 font-display`}>
-      <div className="flex items-center gap-5 group">
-          <span className="text-accent/50 font-semibold  text-xs">
-          <span className='text-primary'>&gt;&gt; </span>
-           /{label}
-          </span>
-        <div className="h-px flex-1 bg-accent/20" />
+const TerminalSection = ({ label, title, children }: {label: String, title: ReactNode, children: ReactNode}) => (
+  <div className="font-display group relative border-l border-border/30 pl-8 pb-16">
+    <div className='absolute -left-px top-0 h-4 w-0.5 bg-accent' />
+    <div className="mb-8">
+      <div className="flex items-center gap-4 mb-2">
+        <span className="text-[11px] text-fg-muted/80 font-light">{label}</span>
+        <div className="h-px flex-1 bg-accent/30" />
       </div>
-
-      {/* Content area */}
-      <div className="space-y-5 pl-6">
-        {/* Simple monospace title */}
-        <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-text/90 font-mono">
-          {title}
-        </h1>
-        
-        {/* Clean description box */}
-        {description && (
-          <div className="pl-5 py-3 border-l border-accent/30">
-            <p className="text-sm md:text-base text-text/65 leading-relaxed max-w-4xl">
-              {description}
-            </p>
-          </div>
-        )}
-        
-        {children}
+      <div className="font-bold text-fg-base">
+        {title}
       </div>
-    </section>
-  )
-}
+    </div>
+    {children}
+  </div>
+);
 
 export default TerminalSection

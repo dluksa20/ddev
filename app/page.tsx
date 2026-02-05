@@ -1,35 +1,13 @@
 'use client'
-import React from 'react';
-
-/**
- * REFINED MINIMALISTIC TERMINAL UI
- * Focus: High legibility, sharp borders, "System 0" aesthetic.
- */
-
-const TerminalSection = ({ label, title, children }: any) => (
-  <div className="group relative border-l border-zinc-800 pl-8 pb-16 last:pb-0">
-    {/* Section Indicator */}
-    <div className="absolute -left-[1px] top-0 h-4 w-[2px] bg-accent shadow-[0_0_8px_#22d3ee]" />
-    
-    <div className="mb-8">
-      <div className="flex items-center gap-4 mb-2">
-        <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">{label}</span>
-        <div className="h-[1px] flex-1 bg-zinc-900" />
-      </div>
-      <div className="text-xl md:text-2xl font-bold tracking-tight text-zinc-100 uppercase italic">
-        {title}
-      </div>
-    </div>
-    {children}
-  </div>
-);
+import React, { ReactNode } from 'react';
+import TerminalSection from '@/components/TerminalSection';
 
 const ProjectCard = ({ name, tech, status, desc }: any) => (
-  <div className="border border-zinc-800 p-5 hover:border-accent/40 hover:bg-zinc-900/30 transition-all group/card">
+  <div className="border border-border/60 p-5 hover:border-accent/40 hover:bg-zinc-900/30 transition-all group/card">
     <div className="flex justify-between items-start mb-3">
       <h3 className="text-sm font-bold text-zinc-200 tracking-wider">./{name}</h3>
       <div className="flex items-center gap-2">
-        <span className={`text-[8px] ${status === 'LIVE' ? 'text-emerald-500' : 'text-zinc-600'}`}>●</span>
+        <span className={`text-[8px] ${status === 'LIVE' ? 'text-emerald-500' : 'text-fg-base'}`}>●</span>
         <span className="text-[9px] text-zinc-500 tracking-tighter">{status}</span>
       </div>
     </div>
@@ -50,12 +28,12 @@ const Page = () => {
   return (
     <div className="min-h-screen w-full bg-surface-base text-fg-base font-mono  selection:bg-accent/30">
       
-      <div className=" max-w-360 mx-auto">
+      <div className=" max-w-360 mx-auto sm:p-10 md:p-12 xl:pd-0">
         
         {/* HEADER AREA */}
-        <header className="mb-20">
+        <header className="mb-10">
           <div className="text-[12px] text-fg-base mb-2 tracking-[0.4em] uppercase">System.Terminal.Initialize()</div>
-          <h1 className="text-fg-muted text-sm opacity-50">localhost:3000/portfolio.md</h1>
+          <h1 className="text-fg-muted text-sm opacity-50">dluksa.dev/Readme.md</h1>
         </header>
 
         <div className="flex flex-col w-full">
@@ -64,23 +42,33 @@ const Page = () => {
           <TerminalSection 
             label="usr" 
             title={
-              <div className="flex items-center gap-2">
-                <span className="text-accent">$</span> WHO<span className="text-accent">AM</span>I
-              </div>
+              <h1 className="">
+                <span className="text-accent">$ </span>
+                Who
+                <span className="text-accent">Am
+                  <span className='text-fg-base'></span>
+                  </span>I
+              </h1>
             }
           >
-            <p className="max-w-xl text-sm leading-relaxed text-zinc-400">
-              Full-stack architect focused on <span className="text-zinc-100 italic">performance-first</span> web applications. 
-              I specialize in bridging the gap between heavy-duty backend logic and fluid, pixel-perfect interfaces. 
-              Currently exploring automated CI/CD pipelines and micro-interaction design.
+            <p className="text-xl font-displayu leading-9 text-fg-base">
+              Junior <span className='text-accent underline underline-offset-5'>Full-Stack</span> Developer crafting performance-optimized web experiences.
+              My current companions <span className='text-accent underline underline-offset-5'>Next.js</span> for responsive,
+              SEO-friendly frontends and <span className='text-accent underline underline-offset-5'>Django</span> for scalable API architectures.
+              Always learning, always shipping.
             </p>
           </TerminalSection>
 
           {/* SECTION 02: TOOLS (SKILLS) */}
           <TerminalSection 
             label="sys" 
-            title="CORE_STACK"
-          >
+            title={<h1 className="">
+                <span className='text-accent'>$ </span>
+                <span className="">Core</span>
+                <span className='text-accent'>S</span>
+                <span className="">tack</span>
+              </h1>}
+          > 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div>
                 <h4 className="text-[10px] font-black text-zinc-600 mb-3 tracking-widest">FRONTEND_ENV</h4>
@@ -112,7 +100,12 @@ const Page = () => {
           {/* SECTION 03: DEPLOYMENTS (PROJECTS) */}
           <TerminalSection 
             label="exe" 
-            title="ACTIVE_DEPLOYMENTS"
+            title={<h1 className="">
+                <span className='text-accent'>$ </span>
+                <span className="">Active</span>
+                <span className='text-accent'>P</span>
+                <span className="">rojects</span>
+              </h1>}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <ProjectCard 
@@ -145,7 +138,7 @@ const Page = () => {
         </div>
 
         {/* FOOTER */}
-        <footer className="mt-20 flex justify-between items-center text-[9px] text-zinc-700 tracking-[0.2em] border-t border-zinc-900 pt-8">
+        <footer className="mt-20 flex justify-between items-center text-[9px] text-fg-base tracking-[0.2em] border-t border-zinc-900 pt-8">
           <div>END_OF_TRANSMISSION</div>
           <div className="flex gap-4">
             <a href="#" className="hover:text-accent transition-colors">GITHUB</a>
