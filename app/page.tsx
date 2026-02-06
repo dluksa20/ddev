@@ -57,7 +57,8 @@ const Page = () => {
               Junior <span className='text-accent underline underline-offset-5'>Full-Stack</span> Developer crafting performance-optimized web experiences.
               My current companions <span className='text-accent underline underline-offset-5'>Next.js</span> for responsive,
               SEO-friendly frontends and <span className='text-accent underline underline-offset-5'>Django</span> for scalable API architectures.
-              Always learning, always shipping.
+              Always learning, always shipping
+
             </p>
           </TerminalSection>
 
@@ -156,7 +157,6 @@ const Page = () => {
           </TerminalSection>
 
         </div>
-
         {/* FOOTER */}
         <footer className="mt-20 flex justify-between items-center text-[9px] text-fg-base tracking-[0.2em] border-t border-zinc-900 pt-8">
           <div>END_OF_TRANSMISSION</div>
