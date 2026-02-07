@@ -6,7 +6,7 @@ import { IconType } from "react-icons";
 
 // Site links
 export const links = [
-    { 
+    {
         title: "Home",
         url: '/',
     },
@@ -39,53 +39,127 @@ export const THEMES = [
 ]
 
 // Project card data
-export const PROJECT_DATA =[
-    {   
-        id: 2026-1,
+export const PROJECT_DATA = [
+    {
+        id: 2026 - 1,
         name: "AETHER_ENGINE",
-        status:"LIVE",
-        description: "A distributed task processing engine built to handle millions of websocket events in real-time.", 
+        status: "LIVE",
+        description: "A distributed task processing engine built to handle millions of websocket events in real-time.",
         technologies: ['Go', 'Redis', 'Next.js'],
     },
-    {   
-        id: 2026-2,
+    {
+        id: 2026 - 2,
         name: "VOID_OS",
-        status:"LIVE",
-        description: "A browser-based terminal operating system with a custom file system and command-line parser.", 
+        status: "LIVE",
+        description: "A browser-based terminal operating system with a custom file system and command-line parser.",
         technologies: ['TypeScript', 'Tailwind', 'Zustand'],
     },
     {
-        id: 2026-3,
+        id: 2026 - 3,
         name: "SPECTER_API",
-        status:"OFFLINE",
-        description: "High-performance GraphQL gateway for aggregating disparate microservice data sources.", 
+        status: "OFFLINE",
+        description: "High-performance GraphQL gateway for aggregating disparate microservice data sources.",
         technologies: ['Apollo', 'Node.js', 'Postgres'],
     },
     {
-        id: 2026-4,
+        id: 2026 - 4,
         name: "NEBULA_DASH",
-        status:"LIVE",
-        description: "Financial analytics dashboard with real-time SVG charting and predictive trend analysis.", 
+        status: "LIVE",
+        description: "Financial analytics dashboard with real-time SVG charting and predictive trend analysis.",
         technologies: ['D3.js', 'React', 'FastAPI'],
     },
 ]
 
 
-export const SOCIALS:{
+import { RiNextjsFill, RiTailwindCssFill, RiReactjsFill } from "react-icons/ri";
+import { SiTypescript, SiNodedotjs, SiDjango,SiPython, SiPostgresql, SiSupabase, SiDocker, SiVercel, SiGithub } from "react-icons/si";
+
+
+export const SKILLS: {
+    section: string;
+    skills: { title: string; icon: IconType }[];
+}[] = [
+    {
+        section: 'Frontend',
+        skills: [
+            {
+                title: 'React',
+                icon: RiReactjsFill,
+            },
+            {
+                title: 'Next.js',
+                icon: RiNextjsFill,
+            },
+            {
+                title: 'Tailwind CSS',
+                icon: RiTailwindCssFill,
+            }
+        ]
+    },
+    {
+        section: 'Backend',
+        skills: [
+            {
+                title: 'Node.js',
+                icon: SiNodedotjs,
+            },
+            {
+                title: 'TypeScript',
+                icon: SiTypescript,
+            },
+            {
+                title: 'Django',
+                icon: SiDjango,
+            },
+            {
+                title: 'Python',
+                icon: SiPython,
+            },
+            {
+                title: 'PostgreSQL',
+                icon: SiPostgresql,
+            },
+            {
+                title: 'Supabase',
+                icon: SiSupabase,
+            }
+        ]
+    },
+    {
+        section: 'Infrastructure',
+        skills: [
+            {
+                title: 'Docker',
+                icon: SiDocker
+            }, 
+            {
+                title: 'Vercel',
+                icon: SiVercel
+            },
+            {
+                title: 'GitHub',
+                icon: SiGithub
+            }
+        ]
+    }
+    
+];
+
+export const SOCIALS: {
     title: string;
     icon: IconType;
 }[] = [
-    {
-        title: 'LinkedIn',
-        icon: TbBrandLinkedin,
-    },
-    {
-        title: 'GitHub',
-        icon: FiGithub,
-    },
-    {
-        title: 'Email',
-        icon: HiOutlineMail,
-    }
-]
+        {
+            title: 'LinkedIn',
+            icon: TbBrandLinkedin,
+        },
+        {
+            title: 'GitHub',
+            icon: FiGithub,
+        },
+        {
+            title: 'Email',
+            icon: HiOutlineMail,
+        }
+    ]
 

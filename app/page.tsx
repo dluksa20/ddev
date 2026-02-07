@@ -3,9 +3,10 @@ import TerminalSection from '@/components/TerminalSection';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import AccentSwitcher from '@/components/AccentSwitcher';
 import ProjectCard from '@/components/ProjectCard';
-import { PROJECT_DATA, SOCIALS } from '@/lib/constants';
+import { PROJECT_DATA, SKILLS, SOCIALS } from '@/lib/constants';
 import Link from 'next/link';
 import { DiVim } from 'react-icons/di';
+import SkillCard from '@/components/SkillCard';
 
 const Page = () => {
   return (
@@ -14,10 +15,10 @@ const Page = () => {
       <div className=" max-w-360 mx-auto sm:p-10 md:p-12 xl:pd-0">
 
         {/* HEADER AREA */}
-        <header className="mb-10">
+        <div className="mb-10">
           <div className="text-[12px] text-fg-base mb-2 tracking-[0.4em] uppercase">System.Terminal.Initialize()</div>
           <h1 className="text-fg-muted text-sm opacity-50">dluksa.dev/Readme.md</h1>
-        </header>
+        </div>
 
         <div className="flex flex-col w-full">
 
@@ -47,7 +48,7 @@ const Page = () => {
                   <Link key={title} href='/' className='flex items-center gap-2 '>
                     <Icon size={25} style={{ fill: 'none', color: 'var(--color-accent)' }} />
                     <p className='text-[14px] font-display'>{title}</p>
-                    <p className='text-accent/30 text-[12px] mx-1 font-display'>|</p>
+                    <p className='text-accent/30 text-[12px] mx-1 font-display decoration-0'>|</p>
                   </Link>
 
                 ))
@@ -66,32 +67,14 @@ const Page = () => {
               <span className="">tack</span>
             </h1>}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div>
-                <h4 className="text-[10px] font-black text-zinc-600 mb-3 tracking-widest">FRONTEND_ENV</h4>
-                <ul className="text-xs space-y-2 text-zinc-300">
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> Next.js 14 / React</li>
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> Tailwind CSS</li>
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> Framer Motion</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-[10px] font-black text-zinc-600 mb-3 tracking-widest">BACKEND_SRV</h4>
-                <ul className="text-xs space-y-2 text-zinc-300">
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> Node / TypeScript</li>
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> Django / Python</li>
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> PostgreSQL / Redis</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-[10px] font-black text-zinc-600 mb-3 tracking-widest">INFRA_STRUC</h4>
-                <ul className="text-xs space-y-2 text-zinc-300">
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> Docker / K8s</li>
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> AWS / Vercel</li>
-                  <li className="flex items-center gap-2"><span className="text-accent">→</span> GitHub Actions</li>
-                </ul>
-              </div>
+            <div className='flex justify-between'>
+              { 
+                SKILLS.map(({section, skills}) => (
+                  <SkillCard key={section} title={section} skills={skills} />
+                ))
+              }
             </div>
+
           </TerminalSection>
 
           {/* SECTION 03: DEPLOYMENTS (PROJECTS) */}
