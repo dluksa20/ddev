@@ -1,9 +1,11 @@
 'use client'
-import React, { ReactNode } from 'react';
 import TerminalSection from '@/components/TerminalSection';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 import AccentSwitcher from '@/components/AccentSwitcher';
 import ProjectCard from '@/components/ProjectCard';
+import { PROJECT_DATA, SOCIALS } from '@/lib/constants';
+import Link from 'next/link';
+import { DiVim } from 'react-icons/di';
 
 const Page = () => {
   return (
@@ -23,22 +25,35 @@ const Page = () => {
           <TerminalSection
             label="usr"
             title={
-              <h1 className="">
-                <span className="text-accent">$ </span>
-                Who
-                <span className="text-accent">Am
-                  <span className='text-fg-base'></span>
-                </span>I
-              </h1>
+                <h1 className="">
+                  <span className="text-accent">$ </span>
+                  Who
+                  <span className="text-accent">Am
+                    <span className='text-fg-base'></span>
+                  </span>I
+                </h1>
             }
           >
-            <p className="text-xl font-displayu leading-9 text-fg-base">
+            <p className="text-xl font-display leading-9 text-fg-base">
               Junior <span className='text-accent underline underline-offset-5'>Full-Stack</span> Developer crafting performance-optimized web experiences.
               My current companions <span className='text-accent underline underline-offset-5'>Next.js</span> for responsive,
               SEO-friendly frontends and <span className='text-accent underline underline-offset-5'>Django</span> for scalable API architectures.
               Always learning, always shipping
 
             </p>
+            <div className='flex mt-10 gap-4 items-center'>
+              {
+                SOCIALS.map(({ title, icon: Icon }) => (
+                  <Link key={title} href='/' className='flex items-center gap-2 '>
+                    <Icon size={25} style={{ fill: 'none', color: 'var(--color-accent)' }} />
+                    <p className='text-[14px] font-display'>{title}</p>
+                    <p className='text-accent/30 text-[12px] mx-1 font-display'>|</p>
+                  </Link>
+
+                ))
+              }
+              <p className='flex items-center gap-2 font-display text-[14px]'>More about me<p className='text-accent'>-&gt;</p></p>
+            </div>
           </TerminalSection>
 
           {/* SECTION 02: TOOLS (SKILLS) */}
@@ -90,30 +105,17 @@ const Page = () => {
             </h1>}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <ProjectCard
-                name="AETHER_ENGINE"
-                status="LIVE"
-                desc="A distributed task processing engine built to handle millions of websocket events in real-time."
-                tech={['Go', 'Redis', 'Next.js']}
-              />
-              <ProjectCard
-                name="VOID_OS"
-                status="LIVE"
-                desc="A browser-based terminal operating system with a custom file system and command-line parser."
-                tech={['TypeScript', 'Tailwind', 'Zustand']}
-              />
-              <ProjectCard
-                name="SPECTER_API"
-                status="OFFLINE"
-                desc="High-performance GraphQL gateway for aggregating disparate microservice data sources."
-                tech={['Apollo', 'Node.js', 'Postgres']}
-              />
-              <ProjectCard
-                name="NEBULA_DASH"
-                status="LIVE"
-                desc="Financial analytics dashboard with real-time SVG charting and predictive trend analysis."
-                tech={['D3.js', 'React', 'FastAPI']}
-              />
+              {
+                PROJECT_DATA.map(({ id, name, status, description, technologies }) => (
+                  <ProjectCard
+                    key={id}
+                    name={name}
+                    status={status}
+                    desc={description}
+                    tech={technologies}
+                  />
+                ))
+              }
             </div>
           </TerminalSection>
 

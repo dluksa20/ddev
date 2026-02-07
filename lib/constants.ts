@@ -1,3 +1,10 @@
+import { FiGithub } from "react-icons/fi";
+import { TbBrandLinkedin } from "react-icons/tb";
+import { HiOutlineMail } from "react-icons/hi";
+import { title } from "process";
+import { IconType } from "react-icons";
+
+// Site links
 export const links = [
     { 
         title: "Home",
@@ -13,6 +20,7 @@ export const links = [
     }
 ]
 
+// Theme specific accents
 export const ACCENT_COLORS = [
     'coral-rose',
     'sage-green',
@@ -23,8 +31,61 @@ export const ACCENT_COLORS = [
     'steel-grey',
 ];
 
+// Theme labels
 export const THEMES = [
     { id: "palenight", label: "Palenight" },
     { id: "void", label: "Void" },
     { id: "ashlight", label: "Ashlight" },
 ]
+
+// Project card data
+export const PROJECT_DATA =[
+    {   
+        id: 2026-1,
+        name: "AETHER_ENGINE",
+        status:"LIVE",
+        description: "A distributed task processing engine built to handle millions of websocket events in real-time.", 
+        technologies: ['Go', 'Redis', 'Next.js'],
+    },
+    {   
+        id: 2026-2,
+        name: "VOID_OS",
+        status:"LIVE",
+        description: "A browser-based terminal operating system with a custom file system and command-line parser.", 
+        technologies: ['TypeScript', 'Tailwind', 'Zustand'],
+    },
+    {
+        id: 2026-3,
+        name: "SPECTER_API",
+        status:"OFFLINE",
+        description: "High-performance GraphQL gateway for aggregating disparate microservice data sources.", 
+        technologies: ['Apollo', 'Node.js', 'Postgres'],
+    },
+    {
+        id: 2026-4,
+        name: "NEBULA_DASH",
+        status:"LIVE",
+        description: "Financial analytics dashboard with real-time SVG charting and predictive trend analysis.", 
+        technologies: ['D3.js', 'React', 'FastAPI'],
+    },
+]
+
+
+export const SOCIALS:{
+    title: string;
+    icon: IconType;
+}[] = [
+    {
+        title: 'LinkedIn',
+        icon: TbBrandLinkedin,
+    },
+    {
+        title: 'GitHub',
+        icon: FiGithub,
+    },
+    {
+        title: 'Email',
+        icon: HiOutlineMail,
+    }
+]
+
