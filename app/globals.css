@@ -182,19 +182,19 @@
 
   /* Button styles */
   .site-btn__default {
-    @apply p-2 text-accent rounded-md;
+    @apply bg-surface-base p-2 text-accent rounded-md;
   }
   .site-btn__primary {
-    @apply p-1 border border-accent/40 rounded-sm w-full text-fg-base;
+    @apply bg-surface-base p-1 border border-accent/40 rounded-sm w-full text-fg-base;
   }
   .site-btn__secondary {
-    @apply p-1 border border-accent/40 rounded-sm w-full text-accent;
+    @apply bg-surface-base p-1 border border-accent/40 rounded-sm w-full text-accent;
   }
   .site-btn__borderless {
-    @apply p-1 rounded-sm w-full text-accent;
+    @apply bg-surface-base p-1 rounded-sm w-full text-accent;
   }
   .site-btn__active {
-    @apply bg-surface-base cursor-pointer text-accent border border-accent fill-accent;
+    @apply bg-accent/5 cursor-pointer text-accent border border-accent/60;
   }
 
 

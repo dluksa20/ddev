@@ -1,11 +1,10 @@
 import { SKILLS } from '@/lib/constants';
-import React from 'react'
-import SkillCard from './SkillCard';
+import SkillBadges from './SkillBadges';
 
 type ProjectCardProps = {
   name: string;
   tech: string[];
-  status: 'LIVE' | 'OFFLINE' | 'MAINTENANCE';
+  status: string;
   desc: string;
 }
 
@@ -46,7 +45,7 @@ const ProjectCard = ({ name, tech, status, desc }: ProjectCardProps) => {
           SKILLS.map(({skills}) => (
             <div>
               {
-                <SkillCard filter={true} skills={skills} skillsArray={tech}/>
+                <SkillBadges filter={true} skills={skills} skillsArray={tech}/>
               }
             </div>
           ))

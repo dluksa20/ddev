@@ -8,7 +8,7 @@ type CardProps = {
 
 };
 
-const SkillCard = ({ title, skills, skillsArray, filter = false }: CardProps) => {
+const SkillBadges = ({ title, skills, skillsArray, filter = false }: CardProps) => {
 
     const filteredSkills = skills
         .filter(skill => skillsArray?.includes(skill.title))
@@ -55,4 +55,4 @@ const SkillCard = ({ title, skills, skillsArray, filter = false }: CardProps) =>
     );
 };
 
-export default SkillCard;
+export default SkillBadges;

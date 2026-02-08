@@ -6,8 +6,8 @@ import ProjectCard from '@/components/ProjectCard';
 import { PROJECT_DATA, SKILLS, SOCIALS } from '@/lib/constants';
 import Link from 'next/link';
 import { DiVim } from 'react-icons/di';
-import SkillCard from '@/components/SkillCard';
-import SkillBox from '@/components/ui/SkillBox';
+import SkillBadges from '@/components/SkillBadges';
+
 
 const Page = () => {
   return (
@@ -54,7 +54,7 @@ const Page = () => {
 
                 ))
               }
-              <p className='flex items-center gap-2 font-display text-[14px]'>More about me<p className='text-accent'>-&gt;</p></p>
+              <p className='flex items-center gap-2 font-display text-[14px]'>More about me<span className='text-accent'>-&gt;</span></p>
             </div>
           </TerminalSection>
 
@@ -71,7 +71,7 @@ const Page = () => {
             <div className='flex justify-between'>
               { 
                 SKILLS.map(({section, skills}) => (
-                  <SkillCard key={section} title={section} skills={skills} skillsArray={['React']} />
+                  <SkillBadges key={section} title={section} skills={skills} skillsArray={['React']} />
                 ))
               }
             </div>
@@ -119,7 +119,6 @@ const Page = () => {
                 <AccentSwitcher />
               </div>
             </div>
-            <SkillBox />
           </TerminalSection>
 
         </div>
