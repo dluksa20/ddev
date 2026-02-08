@@ -45,7 +45,7 @@ export const PROJECT_DATA = [
         name: "AETHER_ENGINE",
         status: "LIVE",
         description: "A distributed task processing engine built to handle millions of websocket events in real-time.",
-        technologies: ['Go', 'Redis', 'Next.js'],
+        technologies: ['Tailwindcss', 'Django', 'Next.js'],
     },
     {
         id: 2026 - 2,
@@ -73,6 +73,7 @@ export const PROJECT_DATA = [
 
 import { RiNextjsFill, RiTailwindCssFill, RiReactjsFill } from "react-icons/ri";
 import { SiTypescript, SiNodedotjs, SiDjango,SiPython, SiPostgresql, SiSupabase, SiDocker, SiVercel, SiGithub } from "react-icons/si";
+import { BiLogoPostgresql } from "react-icons/bi";
 
 
 export const SKILLS: {
@@ -91,7 +92,7 @@ export const SKILLS: {
                 icon: RiNextjsFill,
             },
             {
-                title: 'Tailwind CSS',
+                title: 'Tailwindcss',
                 icon: RiTailwindCssFill,
             }
         ]
@@ -117,7 +118,7 @@ export const SKILLS: {
             },
             {
                 title: 'PostgreSQL',
-                icon: SiPostgresql,
+                icon: BiLogoPostgresql,
             },
             {
                 title: 'Supabase',

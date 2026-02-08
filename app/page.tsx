@@ -7,6 +7,7 @@ import { PROJECT_DATA, SKILLS, SOCIALS } from '@/lib/constants';
 import Link from 'next/link';
 import { DiVim } from 'react-icons/di';
 import SkillCard from '@/components/SkillCard';
+import SkillBox from '@/components/ui/SkillBox';
 
 const Page = () => {
   return (
@@ -35,14 +36,14 @@ const Page = () => {
                 </h1>
             }
           >
-            <p className="text-xl font-display leading-9 text-fg-base">
+            <p className="text-xl font-display leading-9 text-fg-base ">
               Junior <span className='text-accent underline underline-offset-5'>Full-Stack</span> Developer crafting performance-optimized web experiences.
               My current companions <span className='text-accent underline underline-offset-5'>Next.js</span> for responsive,
               SEO-friendly frontends and <span className='text-accent underline underline-offset-5'>Django</span> for scalable API architectures.
               Always learning, always shipping
 
             </p>
-            <div className='flex mt-10 gap-4 items-center'>
+            <div className='flex mt-10 gap-4 items-center '>
               {
                 SOCIALS.map(({ title, icon: Icon }) => (
                   <Link key={title} href='/' className='flex items-center gap-2 '>
@@ -70,7 +71,7 @@ const Page = () => {
             <div className='flex justify-between'>
               { 
                 SKILLS.map(({section, skills}) => (
-                  <SkillCard key={section} title={section} skills={skills} />
+                  <SkillCard key={section} title={section} skills={skills} skillsArray={['React']} />
                 ))
               }
             </div>
@@ -118,6 +119,7 @@ const Page = () => {
                 <AccentSwitcher />
               </div>
             </div>
+            <SkillBox />
           </TerminalSection>
 
         </div>

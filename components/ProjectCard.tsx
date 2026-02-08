@@ -1,25 +1,59 @@
+import { SKILLS } from '@/lib/constants';
 import React from 'react'
+import SkillCard from './SkillCard';
 
-const ProjectCard = ({ name, tech, status, desc }: any) => (
-  <div className="border border-border/60 p-5 hover:border-accent/40 hover:bg-zinc-900/30 transition-all group/card">
-    <div className="flex justify-between items-start mb-3">
-      <h3 className="text-sm font-bold text-zinc-200 tracking-wider">./{name}</h3>
-      <div className="flex items-center gap-2">
-        <span className={`text-[8px] ${status === 'LIVE' ? 'text-emerald-500' : 'text-fg-base'}`}>●</span>
-        <span className="text-[9px] text-zinc-500 tracking-tighter">{status}</span>
+type ProjectCardProps = {
+  name: string;
+  tech: string[];
+  status: 'LIVE' | 'OFFLINE' | 'MAINTENANCE';
+  desc: string;
+}
+
+const ProjectCard = ({ name, tech, status, desc }: ProjectCardProps) => {
+  return (
+    <div className="bg-surface-elevated/70 rounded-md border border-accent/50 p-4 hover:border-accent/30 hover:bg-surface-elevated/30 transition-all duration-300">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-3 pb-2 border-b border-accent/10">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-accent/50 text-xs font-mono">./</span>
+            <h3 className="text-sm font-semibold text-text/85 font-mono">
+              {name}
+            </h3>
+          </div>
+        </div>
+        
+        <div className="flex items-center gap-1">
+          <span className={`w-1.5 h-1.5 rounded-full ${
+            status === 'LIVE' ? 'bg-green-400' : 
+            status === 'MAINTENANCE' ? 'bg-yellow-400' :
+            'bg-red-400'
+          }`} />
+          <span className="text-[9px] uppercase tracking-wider text-text/40 font-mono">
+            {status}
+          </span>
+        </div>
+      </div>
+
+      {/* Description */}
+      <p className="text-xs text-text/60 leading-relaxed mb-3">
+        {desc}
+      </p>
+
+      {/* Tech tags */}
+      <div className="flex flex-wrap gap-1.5">
+        {
+          SKILLS.map(({skills}) => (
+            <div>
+              {
+                <SkillCard filter={true} skills={skills} skillsArray={tech}/>
+              }
+            </div>
+          ))
+        }
       </div>
     </div>
-    <p className="text-xs text-zinc-500 mb-4 leading-relaxed italic">
-      {desc}
-    </p>
-    <div className="flex gap-2 flex-wrap">
-      {tech.map((t: string) => (
-        <span key={t} className="text-[9px] px-2 py-0.5 bg-zinc-900 text-zinc-400 border border-zinc-800 group-hover/card:border-accent/20">
-          {t}
-        </span>
-      ))}
-    </div>
-  </div>
-);
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

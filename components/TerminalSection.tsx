@@ -7,7 +7,7 @@ const TerminalSection = ({ label, title, children }: {label: String, title: Reac
     <div className="mb-8">
       <div className="flex items-center gap-4 mb-2">
         <span className="text-[11px] text-fg-muted/80 font-light">{label}</span>
-        <div className="h-px flex-1 bg-accent/30" />
+        <div className="h-px flex-1 bg-accent/10" />
       </div>
       <div className="font-bold text-fg-base">
         {title}
