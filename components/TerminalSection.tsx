@@ -1,20 +1,61 @@
-// components/TerminalSection.tsx
 import { ReactNode } from "react";
 
-const TerminalSection = ({ label, title, children }: {label: String, title: ReactNode, children: ReactNode}) => (
-  <div className="font-display group relative border-l border-border/30 pl-8 pb-16">
-    <div className='absolute -left-px top-0 h-4 w-0.5 bg-accent' />
-    <div className="mb-8">
-      <div className="flex items-center gap-4 mb-2">
-        <span className="text-[11px] text-fg-muted/80 font-light">{label}</span>
-        <div className="h-px flex-1 bg-accent/10" />
-      </div>
-      <div className="font-bold text-fg-base">
-        {title}
-      </div>
-    </div>
-    {children}
-  </div>
-);
+interface TerminalSectionProps {
+  label: string;
+  title: string;
+  children?: ReactNode;
+}
 
-export default TerminalSection
+const TerminalSection = ({ label, title, children }: TerminalSectionProps) => {
+
+  // Capitalize words
+  const capitalize = (str: string): string[] => {
+    return str
+      .split(" ")
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+  }
+  // Generate title for section
+  const generateTitle = (words: string[]) => {
+    const middleIndex = Math.floor(words.length / 2);
+    return words.map((word, index) => (
+      <span key={index}>
+        {words.length == 3 ? (
+          index === middleIndex ? (
+            <span className="text-accent">{word}</span>
+          ) : (
+            <span className="text-fg-base">{word}</span>
+          )
+        ) : index === 0 ? (
+          <span className="text-fg-base">{word}</span>
+        ) : (
+          <>
+            <span className="text-accent">{word[0]}</span>
+            <span className="text-fg-base">{word.slice(1)}</span>
+          </>
+        )}
+      </span>
+    ));
+  };
+
+
+
+  return (
+    <div className="font-display group relative border-l border-border/30 pl-8 pb-16">
+      <div className='absolute -left-px top-0 h-4 w-0.5 bg-accent' />
+      <div className="mb-8">
+        <div className="flex items-center gap-4 mb-2">
+          <span className="text-[11px] text-fg-muted/80 font-light">{label}</span>
+          <div className="h-px flex-1 bg-accent/10" />
+        </div>
+        <div className="font-bold text-fg-base">
+          {
+            <h1>$ {generateTitle(capitalize(title))}</h1>
+          }
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+};
+
+export default TerminalSection;

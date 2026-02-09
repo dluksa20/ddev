@@ -12,7 +12,7 @@ const SkillBadges = ({ title, skills, skillsArray, filter = false }: CardProps) 
 
     const filteredSkills = skills
         .filter(skill => skillsArray?.includes(skill.title))
-        
+
     return (
         <div className="space-y-4 font-display">
             {/* Minimal header */}
@@ -41,7 +41,7 @@ const SkillBadges = ({ title, skills, skillsArray, filter = false }: CardProps) 
                     <div className="flex flex-wrap gap-2">
                         {
                             filteredSkills.map(({ title, icon: Icon }) => (
-                                <div className='flex rounded-md items-center gap-1 text-sm text-fg-base/60 '>
+                                <div key={title} className='flex rounded-md items-center gap-1 text-sm text-fg-base/60 '>
                                     <Icon className="fill-acent/20" />
                                     {title}
                                     <span className='text-fg-base/40'>/</span>
@@ -49,7 +49,7 @@ const SkillBadges = ({ title, skills, skillsArray, filter = false }: CardProps) 
                             ))
                         }
                     </div>
-                ) 
+                )
             }
         </div>
     );

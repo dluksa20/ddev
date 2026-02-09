@@ -7,6 +7,7 @@ import { PROJECT_DATA, SKILLS, SOCIALS } from '@/lib/constants';
 import Link from 'next/link';
 import { DiVim } from 'react-icons/di';
 import SkillBadges from '@/components/SkillBadges';
+import { Span } from 'next/dist/trace';
 
 
 const Page = () => {
@@ -26,15 +27,7 @@ const Page = () => {
           {/* SECTION 01: WHOAMI */}
           <TerminalSection
             label="usr"
-            title={
-                <h1 className="">
-                  <span className="text-accent">$ </span>
-                  Who
-                  <span className="text-accent">Am
-                    <span className='text-fg-base'></span>
-                  </span>I
-                </h1>
-            }
+            title="who am i"
           >
             <p className="text-xl font-display leading-9 text-fg-base ">
               Junior <span className='text-accent underline underline-offset-5'>Full-Stack</span> Developer crafting performance-optimized web experiences.
@@ -61,12 +54,7 @@ const Page = () => {
           {/* SECTION 02: TOOLS (SKILLS) */}
           <TerminalSection
             label="sys"
-            title={<h1 className="">
-              <span className='text-accent'>$ </span>
-              <span className="">Core</span>
-              <span className='text-accent'>S</span>
-              <span className="">tack</span>
-            </h1>}
+            title="core stack"
           >
             <div className='flex justify-between'>
               { 
@@ -81,12 +69,7 @@ const Page = () => {
           {/* SECTION 03: DEPLOYMENTS (PROJECTS) */}
           <TerminalSection
             label="exe"
-            title={<h1 className="">
-              <span className='text-accent'>$ </span>
-              <span className="">Active</span>
-              <span className='text-accent'>P</span>
-              <span className="">rojects</span>
-            </h1>}
+            title="active projects"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {
@@ -103,22 +86,24 @@ const Page = () => {
             </div>
           </TerminalSection>
 
-          <TerminalSection label='bin' title={
-            <h1>
-              <span className='text-accent'>$ </span>
-              <span>Ui</span>
-              <span className='text-accent'>S</span>
-              <span>ettings</span>
-            </h1>
-          }>
-            <div className='flex justify-center flex-col flex-1'>
-              <div>
-                <ThemeSwitcher />
+
+
+          {/* UI Settings */}
+
+          <TerminalSection label='bin' title='ui settings'>
+            <div className='flex justify-center items-center h-20'>
+              <div className='flex-1'>
+                <ThemeSwitcher/>
               </div>
-              <div className='flex items-center justify-center'>
-                <AccentSwitcher />
+              <div className='flex h-20 w-auto'>
+                <AccentSwitcher shape='square' />
               </div>
             </div>
+          </TerminalSection>
+
+          <TerminalSection label='etc' title='Helo World'>
+
+
           </TerminalSection>
 
         </div>

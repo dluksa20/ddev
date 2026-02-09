@@ -2,7 +2,7 @@ import React from "react"
 import clsx from "clsx"
 
 type ButtonVariant = "default" | "primary" | "secondary" | "borderless"
-type ButtonSize = "xs" | "sm" | "md" | "lg"
+type ButtonSize = "xs" | "sm" | "md" | "lg" | "auto"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonText?: string
@@ -41,6 +41,7 @@ const Button: React.FC<ButtonProps> = ({
     sm: "h-8 min-w-8 p-2 text-sm",
     md: "h-10 min-w-10 p-4 text-md",
     lg: "h-12 min-w-12 p-6 text-lg",
+    auto: 'h-full w-auto aspect-square p-0 text-base',
   }
 
   return (

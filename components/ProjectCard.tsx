@@ -21,13 +21,12 @@ const ProjectCard = ({ name, tech, status, desc }: ProjectCardProps) => {
             </h3>
           </div>
         </div>
-        
+
         <div className="flex items-center gap-1">
-          <span className={`w-1.5 h-1.5 rounded-full ${
-            status === 'LIVE' ? 'bg-green-400' : 
-            status === 'MAINTENANCE' ? 'bg-yellow-400' :
-            'bg-red-400'
-          }`} />
+          <span className={`w-1.5 h-1.5 rounded-full ${status === 'LIVE' ? 'bg-green-400' :
+              status === 'MAINTENANCE' ? 'bg-yellow-400' :
+                'bg-red-400'
+            }`} />
           <span className="text-[9px] uppercase tracking-wider text-text/40 font-mono">
             {status}
           </span>
@@ -42,12 +41,8 @@ const ProjectCard = ({ name, tech, status, desc }: ProjectCardProps) => {
       {/* Tech tags */}
       <div className="flex flex-wrap gap-1.5">
         {
-          SKILLS.map(({skills}) => (
-            <div>
-              {
-                <SkillBadges filter={true} skills={skills} skillsArray={tech}/>
-              }
-            </div>
+          SKILLS.map(({ skills }) => (
+            <SkillBadges key={skills[0]?.title} filter={true} skills={skills} skillsArray={tech} />
           ))
         }
       </div>
