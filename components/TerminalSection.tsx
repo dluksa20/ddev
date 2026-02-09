@@ -14,6 +14,7 @@ const TerminalSection = ({ label, title, children }: TerminalSectionProps) => {
       .split(" ")
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
   }
+
   // Generate title for section
   const generateTitle = (words: string[]) => {
     const middleIndex = Math.floor(words.length / 2);
@@ -38,18 +39,17 @@ const TerminalSection = ({ label, title, children }: TerminalSectionProps) => {
   };
 
 
-
   return (
-    <div className="font-display group relative border-l border-border/30 pl-8 pb-16">
+    <div className="font-display group relative border-l border-fg-base/10 pl-8 pb-16">
       <div className='absolute -left-px top-0 h-4 w-0.5 bg-accent' />
       <div className="mb-8">
         <div className="flex items-center gap-4 mb-2">
-          <span className="text-[11px] text-fg-muted/80 font-light">{label}</span>
-          <div className="h-px flex-1 bg-accent/10" />
+          <span className="text-ui text-fg-muted font-light">{label}</span>
+          <div className="h-px flex-1 bg-accent/20" />
         </div>
         <div className="font-bold text-fg-base">
           {
-            <h1>$ {generateTitle(capitalize(title))}</h1>
+            <h1> <span className="text-accent/60">$</span> {generateTitle(capitalize(title))}</h1>
           }
         </div>
       </div>

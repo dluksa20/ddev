@@ -2,7 +2,7 @@ import React from 'react'
 
 const TerminalFooter = () => {
     return (
-        <footer className="shrink-0 bg-surface-elevated/80 backdrop-blur-sm border-t border-accent/20 px-4 py-3 md:px-8">
+        <footer className="shrink-0 bg-surface-elevated/80 backdrop-blur-sm border-t border-accent/20 px-4 py-3">
             <div className="max-w-7xl mx-auto flex items-center gap-4">
                 {/* Prompt */}
                 <div className="flex items-center gap-2 shrink-0">

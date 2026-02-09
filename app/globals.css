@@ -19,10 +19,6 @@
     --accent-sky-light: #3F8FD6;
     --accent-steel-light: #6B7280;
 
-    /* Spacing */
-
-
-    
   }
 }
 
@@ -89,8 +85,15 @@
 }
 
 @theme {
+  /* Font Styles */
   --font-display: "Ubuntu Mono", monospace;
 
+  /* Font Sizes */
+  --text-ui: 0.75rem;
+  --text-base: 1rem;
+  --text-heading: 1.25rem;
+
+  /* UI Colors */
   --color-surface-base: hsl(var(--surface-base));
   --color-surface-elevated: hsl(var(--surface-elevated));
   --color-surface-hovered: hsl(var(--surface-hovered));
@@ -99,6 +102,8 @@
   --color-border: hsl(var(--border));
   --color-fg-base: hsl(var(--fg-base));
   --color-fg-muted: hsl(var(--fg-muted));
+
+
 
   /* Animations */
   --animate-blink: blink 3s steps(1) infinite;
@@ -165,14 +170,6 @@
     @apply bg-accent/70;
   }
 
-  /* Overlays */
-
-  .surface-overlay-dark::before {
-    @apply pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(0,0,0,0.08)_20%),linear-gradient(90deg,rgba(255,0,0,0.008),rgba(0,255,0,0.004),rgba(0,0,255,0.006))] bg-size-[100%_4px,4px_100%] z-50
-  }
-  .surface-overlay-light {
-    @apply pointer-events-none fixed inset-0 bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(0,0,0,0.04)_80%),linear-gradient(90deg,rgba(255,0,0,0.006),rgba(0,255,0,0.004),rgba(0,0,255,0.012))] bg-size-[100%_4px,4px_100%] z-50
-  }
   
 }
 
