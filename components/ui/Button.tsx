@@ -2,7 +2,7 @@ import React from "react"
 import clsx from "clsx"
 
 type ButtonVariant = "default" | "primary" | "secondary" | "borderless"
-type ButtonSize = "xs" | "sm" | "md" | "lg" | "auto"
+type ButtonSize = "xs" | "sm" | "md" | "lg" | "auto" | string
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonText?: string
@@ -22,10 +22,10 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   // Variant base classes
   const variantClasses: Record<ButtonVariant, string> = {
-    default: "site-btn__default",
-    primary: "site-btn__primary",
-    secondary: "site-btn__secondary",
-    borderless: "site-btn__borderless",
+    default: "site-btn__default site_btn__hover",
+    primary: "site-btn__primary site_btn__hover",
+    secondary: "site-btn__secondary site_btn__hover",
+    borderless: "site-btn__borderless site_btn__hover",
   }
 
   const activeClasses: Record<ButtonVariant, string> = {
@@ -41,7 +41,7 @@ const Button: React.FC<ButtonProps> = ({
     sm: "h-8 min-w-8 p-2 text-sm",
     md: "h-10 min-w-10 p-4 text-md",
     lg: "h-12 min-w-12 p-6 text-lg",
-    auto: 'h-full w-auto aspect-square p-0 text-base',
+    auto: 'w-full min-h-10 min-w-10 aspect-square p-0 text-base',
   }
 
   return (

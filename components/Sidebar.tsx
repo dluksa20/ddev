@@ -43,7 +43,7 @@ const Sidebar = ({ onClose }: SidebarProps) => {
                                 <h2>Themes</h2>
                             </div>
                             <ThemeSwitcher />
-                            <AccentSwitcher />
+                            <AccentSwitcher size='sm'/>
                         </div>
                     </section>
                 </div>

@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="bg-surface-base text-fg-base min-h-screen scrollbar">
+      <body className="bg-surface-base text-fg-base min-h-screen scrollbar selection:bg-accent/30">
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />

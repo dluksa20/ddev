@@ -42,11 +42,11 @@ const TerminalHeader = () => {
         <div className="w-3 h-3 rounded-full bg-green-400 shadow-inner" />
       </div>
 
-      <div className="hidden md:block text-ui uppercase tracking-[0.15rem] text-accent/60 font-bold">
+      <div className="text-ui uppercase tracking-default text-accent/60 font-bold">
         ddev — zsh — {dimensions.width}×{dimensions.height}
       </div>
 
-      <div className="text-ui text-accent/90 md:w-12 text-right">
+      <div className="text-ui text-accent/90  text-right">
         {time}
       </div>
     </div>

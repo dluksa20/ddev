@@ -1,8 +1,8 @@
 import { FiGithub } from "react-icons/fi";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { HiOutlineMail } from "react-icons/hi";
-import { title } from "process";
 import { IconType } from "react-icons";
+
 
 // Site links
 export const links = [

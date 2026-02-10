@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Root colors */
 @layer base {
   :root {
     /* Accent palettes dark theme*/
@@ -73,8 +74,8 @@
 
 
   .ashlight {
-    --surface-base: 240 14% 91%;
-    --surface-elevated: 220 14% 94%;
+    --surface-elevated: 240 14% 91%;
+    --surface-base: 220 14% 94%;
     --surface-hovered: 220 14% 92%;
     --primary: 32 90% 50%;
     --accent: 208, 65%, 54%;
@@ -87,14 +88,17 @@
 @theme {
   /* Font Styles */
   --font-display: "Ubuntu Mono", monospace;
+
+
   /* Font Sizes */
   --text-ui: 0.75rem;
   --text-base: 1rem;
-  --text-heading: 1.25rem;
+  --text-subheading: 1.25rem;
+  --text-heading: 1.5rem;
 
   /* Letter spacing  */
-  --tracking-default: 0.1rem;
-  --tracking-wide: 0.25rem;
+  --tracking-default: 0.06rem;
+  --tracking-wide: 0.08rem;
 
   /* Containers */
   --container: 140px;
@@ -110,7 +114,6 @@
   --color-fg-muted: hsl(var(--fg-muted));
 
 
-
   /* Animations */
   --animate-blink: blink 3s steps(1) infinite;
 
@@ -122,60 +125,23 @@
       opacity: 0;
     }
   }
-  --container-*: initial;
-  --container-sm: 400px;
-  --container-md: 1080px;
-  --container-lg: 1200px;
-  --container-xl: 1500px;
-  ----container-2xl: 2000px;
 }
 
-
-
-
-
-@layer utilities{
-
-  container {
-    @variant sm {
-      @apply max-w-100;
-    }
-     @variant md {
-      @apply max-w-100;
-    }
-     @variant xl {
-      @apply max-w-100;
-    }
-  }
-  html, body {
-    @apply font-display scroll-m-12;
-  }
-
-  button:hover {
-    @apply bg-surface-base cursor-pointer text-accent border border-accent/50 fill-accent;
-  }
-
-  /* Headings */
+@layer utilities {
   h1 {
-    @apply text-[1.75rem] text-fg-base font-bold ;
-  }
-  h2 {
-    @apply text-[1.25rem] text-fg-base;
-  }
-  h3 {
-    @apply text-[1rem]
+    @apply text-heading 
   }
   p {
-    @apply text-[1.2rem] text-fg-base leading-relaxed;
+    @apply text-ui text-fg-base tracking-default
   }
-  a {
-    @apply text-[1rem] text-fg-base;
+
+
+  .gradient {
+    @apply bg-linear-to-br from-accent/15 to-accent/5 border border-accent/25;
   }
-  a:hover {
-    @apply underline text-accent;
-  }
-  svg {
-    @apply fill-accent;
+  
+  .container-elevated {
+    @apply bg-surface-elevated/30 border border-accent/20 rounded-lg
   }
 }
 
@@ -195,9 +161,10 @@
   .scrollbar::-webkit-scrollbar-thumb:hover {
     @apply bg-accent/70;
   }
-
   
 }
+
+
 
 
 @layer components {  
@@ -205,19 +172,22 @@
 
   /* Button styles */
   .site-btn__default {
-    @apply bg-surface-base p-2 text-accent rounded-md;
+    @apply cursor-pointer bg-surface-base p-2 text-accent rounded-md;
   }
   .site-btn__primary {
-    @apply bg-surface-base p-1 border border-accent/40 rounded-sm w-full text-fg-base;
+    @apply cursor-pointer bg-surface-base p-1 border border-accent/40 rounded-sm w-full text-fg-base;
   }
   .site-btn__secondary {
-    @apply bg-surface-base p-1 border border-accent/40 rounded-sm w-full text-accent;
+    @apply cursor-pointer bg-surface-base p-1 border border-accent/40 rounded-sm w-full text-accent;
   }
   .site-btn__borderless {
-    @apply bg-surface-base p-1 rounded-sm w-full text-accent;
+    @apply cursor-pointer bg-surface-base p-1 rounded-sm w-full text-accent;
   }
   .site-btn__active {
-    @apply bg-accent/5 cursor-pointer text-accent border border-accent/60;
+    @apply cursor-pointer bg-accent/5 text-accent border border-accent/30;
+  }
+  .site_btn__hover {
+    @apply hover:border hover:border-accent/60 hover:bg-accent/5 hover:text-accent;
   }
 
 
@@ -271,12 +241,7 @@
   .site-sidebar__accent-button {
     @apply aspect-square w-auto h-3 p-4 min-h-0;
   }
-
-
-
-
 }
-
 
 
 
