@@ -74,8 +74,8 @@
 
 
   .ashlight {
-    --surface-elevated: 240 14% 91%;
-    --surface-base: 220 14% 94%;
+    --surface-base: 220 40% 96%;
+    --surface-elevated: 220 32% 98%;
     --surface-hovered: 220 14% 92%;
     --primary: 32 90% 50%;
     --accent: 208, 65%, 54%;
@@ -181,13 +181,13 @@
     @apply cursor-pointer bg-surface-base p-1 border border-accent/40 rounded-sm w-full text-accent;
   }
   .site-btn__borderless {
-    @apply cursor-pointer bg-surface-base p-1 rounded-sm w-full text-accent;
+    @apply cursor-pointer bg-surface-elevated p-1 rounded-sm w-full text-accent;
   }
   .site-btn__active {
-    @apply cursor-pointer bg-accent/5 text-accent border border-accent/30;
+    @apply cursor-pointer bg-accent/10 text-accent border border-accent/60;
   }
   .site_btn__hover {
-    @apply hover:border hover:border-accent/60 hover:bg-accent/5 hover:text-accent;
+    @apply hover:border hover:border-accent/30 hover:bg-accent/5 hover:text-accent;
   }
 
 
