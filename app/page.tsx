@@ -14,11 +14,11 @@ const Page = () => {
   return (
     <div className="min-h-screen w-full bg-surface-base text-fg-base font-mono  selection:bg-accent/30">
 
-      <div className=" max-w-360 mx-auto sm:p-10 md:p-12 xl:pd-0">
+      <div className="@container mx-auto sm:p-10 md:p-12 xl:pd-0">
 
         {/* HEADER AREA */}
         <div className="mb-10">
-          <div className="text-[12px] text-fg-base mb-2 tracking-[0.4em] uppercase">System.Terminal.Initialize()</div>
+          <div className="text-ui text-fg-base mb-2 tracking-[0.4em] uppercase">System.Terminal.Initialize()</div>
           <h1 className="text-fg-muted text-sm opacity-50">dluksa.dev/Readme.md</h1>
         </div>
 
@@ -42,7 +42,7 @@ const Page = () => {
                   <Link key={title} href='/' className='flex items-center gap-2 '>
                     <Icon size={25} style={{ fill: 'none', color: 'var(--color-accent)' }} />
                     <p className='text-[14px] font-display'>{title}</p>
-                    <p className='text-accent/30 text-[12px] mx-1 font-display decoration-0'>|</p>
+                    <p className='text-accent/30 text-ui mx-1 font-display decoration-0'>|</p>
                   </Link>
 
                 ))

@@ -87,11 +87,17 @@
 @theme {
   /* Font Styles */
   --font-display: "Ubuntu Mono", monospace;
-
   /* Font Sizes */
   --text-ui: 0.75rem;
   --text-base: 1rem;
   --text-heading: 1.25rem;
+
+  /* Letter spacing  */
+  --tracking-default: 0.1rem;
+  --tracking-wide: 0.25rem;
+
+  /* Containers */
+  --container: 140px;
 
   /* UI Colors */
   --color-surface-base: hsl(var(--surface-base));
@@ -116,11 +122,31 @@
       opacity: 0;
     }
   }
+  --container-*: initial;
+  --container-sm: 400px;
+  --container-md: 1080px;
+  --container-lg: 1200px;
+  --container-xl: 1500px;
+  ----container-2xl: 2000px;
 }
 
 
 
+
+
 @layer utilities{
+
+  container {
+    @variant sm {
+      @apply max-w-100;
+    }
+     @variant md {
+      @apply max-w-100;
+    }
+     @variant xl {
+      @apply max-w-100;
+    }
+  }
   html, body {
     @apply font-display scroll-m-12;
   }
@@ -245,6 +271,10 @@
   .site-sidebar__accent-button {
     @apply aspect-square w-auto h-3 p-4 min-h-0;
   }
+
+
+
+
 }
 
 
