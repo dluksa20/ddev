@@ -52,7 +52,7 @@ const ProjectCard = ({ name, tech, status, desc }: ProjectCardProps) => {
           {SKILLS.map(({ skills }) => (
             <SkillBadges
               key={skills[0]?.title}
-              filter
+              filter={true}
               skills={skills}
               skillsArray={tech}
             />

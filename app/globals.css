@@ -136,10 +136,24 @@
   }
 
 
+  /* Shadows */
+  .shadow-accent-sm {
+    @apply shadow-[0_0_6px] shadow-accent;
+  }
+
+  /* Texts */
+  .text-capitalized {
+    @apply text-base uppercase tracking-wide text-fg-base font-bold;
+  }
+
+  /* Backgrounds */
   .gradient {
     @apply bg-linear-to-br from-accent/15 to-accent/5 border border-accent/25;
   }
   
+
+
+  /* Contaner */
   .container-elevated {
     @apply bg-surface-elevated/30 border border-accent/20 rounded-lg
   }
@@ -240,6 +254,18 @@
   }
   .site-sidebar__accent-button {
     @apply aspect-square w-auto h-3 p-4 min-h-0;
+  }
+
+
+
+
+  /* PAGES */
+  .site-page__home {
+    @apply min-h-screen w-full bg-surface-base text-fg-base font-display mb-20;
+  }
+
+  .site-page__home-inner {
+    @apply max-w-360 mx-auto sm:p-10;
   }
 }
 

@@ -22,7 +22,7 @@ const Sidebar = ({ onClose }: SidebarProps) => {
 
     return (
         <div className="site-sidebar">
-            <div className="site-sidebar__inner flex flex-col h-full justify-between">
+            <div className="site-sidebar__inner">
                 <div>
                     {/* Sidebar Header */}
                     <section className="site-sidebar__header">

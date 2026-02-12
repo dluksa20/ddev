@@ -7,23 +7,20 @@ import { PROJECT_DATA, SKILLS, SOCIALS } from '@/lib/constants';
 import Link from 'next/link';
 import SkillBadges from '@/components/SkillBadges';
 import EmailForm from '@/components/EmailForm';
+import Initialize from '@/components/ui/Initialize';
+import Socials from '@/components/ui/Socials';
 
 
 
 const Page = () => {
   return (
-    <div className="min-h-screen w-full bg-surface-base text-fg-base font-display mb-20">
+    <div className="site-page__home">
 
-      <div className="max-w-360 mx-auto sm:p-10 ">
+      <div className="site-page__home-inner">
 
         {/* System.Terminal.Initialize() */}
-        <div className="mb-10">
-          <div className="text-ui text-fg-base mb-2 tracking-default uppercase">System.Terminal.Initialize()</div>
-          <h1 className="text-fg-muted text-ui">dluksa.dev/Readme.md</h1>
-        </div>
+        <Initialize fileName='Readme.md' />
 
-
-        <div className="flex flex-col w-full">
 
           {/* SECTION 01: WHO_AM_I */}
           <TerminalSection
@@ -34,22 +31,11 @@ const Page = () => {
               Junior <span className='text-accent underline underline-offset-5'>Full-Stack</span> Developer crafting performance-optimized web experiences.
               My current companions <span className='text-accent underline underline-offset-5'>Next.js</span> for responsive,
               SEO-friendly frontends and <span className='text-accent underline underline-offset-5'>Django</span> for scalable API architectures.
-              Always learning, always shipping
-
+              Always learning, always shipping.
             </p>
-            <div className='flex mt-10 gap-4 items-center '>
-              {
-                SOCIALS.map(({ title, icon: Icon }) => (
-                  <Link key={title} href='/' className='flex items-center gap-2 '>
-                    <Icon size={20} style={{ fill: 'none', color: 'var(--color-accent)' }} />
-                    <p className='text-ui'>{title}</p>
-                    <p className='text-accent/30 text-ui mx-1'>|</p>
-                  </Link>
-
-                ))
-              }
-            </div>
+            <Socials />
           </TerminalSection>
+
 
 
           {/* SECTION 02: CORE_STACK */}
@@ -145,28 +131,15 @@ const Page = () => {
           </TerminalSection>
 
           <TerminalSection label='etc' title='Helo World'>
-              <EmailForm />
+            <EmailForm />
 
           </TerminalSection>
-
-        </div>
 
 
         {/* System.Terminal.Initialize() */}
         <footer className="mt-10 flex border-t pt-5 justify-between items-center text-ui text-fg-base tracking-wide ">
-          <div className='text-ui text-fg-base mb-2 tracking-default uppercase'>System.Terminal.End()</div>
-          <div className="flex gap-4">
-            {
-              SOCIALS.map(({ title, icon: Icon }) => (
-                <Link key={title} href='/' className='flex items-center gap-2 '>
-                  <Icon size={20} style={{ fill: 'none', color: 'var(--color-accent)' }} />
-                  <p className='text-ui'>{title}</p>
-                  <p className='text-accent/30 text-ui mx-1'>|</p>
-                </Link>
-
-              ))
-            }
-          </div>
+          <Initialize endTransmission={true} />
+          <Socials />
         </footer>
       </div>
     </div>
