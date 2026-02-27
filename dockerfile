@@ -23,4 +23,4 @@ EXPOSE 8080
 ENV PORT=8080
 
 # Start the standalone server
-CMD ["node", ".next/standalone/server.js"]
+CMD ["npm", "run", "dev"]
