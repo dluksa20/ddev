@@ -81,14 +81,14 @@ const Page = () => {
           <TerminalSection label='bin' title='system settings'>
 
             {/* Themes */}
-            <div className='flex gap-2 items-stretch'>
-              <div className='flex flex-col container-elevated justify-between flex-1 gap-3 p-5'>
+            <div className='flex flex-wrap gap-2'>
+              <div className='flex flex-col container-elevated justify-between flex gap-3 p-5'>
                 <ThemeSwitcher />
                 <AccentSwitcher shape='square' size='auto' />
               </div>
 
               {/* System Status */}
-              <div className='flex-1 border container-elevated p-5 '>
+              <div className='flex border container-elevated p-5 '>
                 <div className='space-y-3'>
                   <div className='text-[10px] uppercase tracking-wider text-accent/50 font-mono'>System Status</div>
 

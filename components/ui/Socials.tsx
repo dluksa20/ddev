@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Socials = () => {
     return (
-        <div className='flex mt-10 gap-4 items-center '>
+        <div className='flex flex-wrap mt-10 gap-4 items-center '>
             {
                 SOCIALS.map(({ title, icon: Icon }) => (
                     <Link key={title} href='/' className='flex items-center gap-2 '>
