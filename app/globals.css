@@ -224,7 +224,7 @@
     @apply flex items-center h-full justify-center gap-10;
   }
   .site-header__link {
-    @apply uppercase;
+    @apply hidden sm:flex uppercase;
   }
 
   /* Sidebar */

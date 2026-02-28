@@ -43,7 +43,7 @@ const Page = () => {
             label="sys"
             title="core stack"
           >
-            <div className='flex justify-between'>
+            <div className='flex flex-wrap justify-between'>
               {
                 SKILLS.map(({ section, skills }) => (
                   <SkillBadges key={section} title={section} skills={skills} />
@@ -137,10 +137,10 @@ const Page = () => {
 
 
         {/* System.Terminal.Initialize() */}
-        <footer className="mt-10 flex border-t pt-5 justify-between items-center text-ui text-fg-base tracking-wide ">
+        {/* <footer className="mt-10 flex border-t pt-5 justify-between items-center text-ui text-fg-base tracking-wide ">
           <Initialize endTransmission={true} />
           <Socials />
-        </footer>
+        </footer> */}
       </div>
     </div>
   );
