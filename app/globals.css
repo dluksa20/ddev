@@ -138,7 +138,7 @@
     @apply text-ui text-fg-base tracking-default
   }
   html { 
-    @apply bg-black
+    @apply bg-surface-base
   }
 
 
