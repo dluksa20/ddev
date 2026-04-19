@@ -83,12 +83,10 @@ const Page = () => {
 
             {/* Theme Switcher — col 1 on all sizes */}
             <div className='flex flex-col gap-4 md:gap-0 justify-around p-4 container-elevated'>
-              <div className=''>
                 <ThemeSwitcher />
-              </div>
-                <div className=''>
+
                   <AccentSwitcher shape='square' size='auto' />
-                </div>
+
             </div>
 
             {/* System Status — col 2 on md+, full width on mobile */}
@@ -131,7 +129,7 @@ const Page = () => {
         {/* Contact me form */}
         <TerminalSection label='etc' title='Helo World'>
           <EmailForm />
-          <div className='absolute right-10'>
+          <div className='absolute right-14'>
             <Socials />
           </div>
 
