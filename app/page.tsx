@@ -122,9 +122,13 @@ const Page = () => {
               </div>
             </div>
 
+
+
             {/* Location — col 3 on lg, full width on md (spans 2 cols), full width on mobile */}
             <div className='container-elevated h-50 md:col-span-2 lg:col-span-1'>
-              <MiniMap></MiniMap>
+              <MiniMap />
+              <div className='h-10'>
+              </div>
             </div>
 
           </div>
