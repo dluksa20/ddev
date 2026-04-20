@@ -8,6 +8,7 @@ import Link from 'next/link';
 import SkillBadges from '@/components/SkillBadges';
 import EmailForm from '@/components/EmailForm';
 import Socials from '@/components/ui/Socials';
+import MiniMap from '@/components/MiniMap';
 
 
 
@@ -122,7 +123,9 @@ const Page = () => {
             </div>
 
             {/* Location — col 3 on lg, full width on md (spans 2 cols), full width on mobile */}
-            <div className='container-elevated h-50 md:col-span-2 lg:col-span-1'></div>
+            <div className='container-elevated h-50 md:col-span-2 lg:col-span-1'>
+              <MiniMap></MiniMap>
+            </div>
 
           </div>
         </TerminalSection>
