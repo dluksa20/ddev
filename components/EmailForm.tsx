@@ -33,7 +33,7 @@ const EmailFormSideBySide = () => {
               <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
                 <span className="text-accent text-xs">✉</span>
               </div>
-              <span className="text-text/70 font-mono text-xs">ddev@fluksa.dev</span>
+              <span className="text-text/70 font-mono text-xs">ddev@dluksa.dev</span>
             </div>
 
             <div className="flex items-center gap-3 text-sm">
@@ -43,12 +43,6 @@ const EmailFormSideBySide = () => {
               <span className="text-text/70 font-mono text-xs">London, England</span>
             </div>
 
-            <div className="flex items-center gap-3 text-sm">
-              <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                <span className="text-accent text-xs">⏰</span>
-              </div>
-              <span className="text-text/70 font-mono text-xs">GMT Timezone</span>
-            </div>
           </div>
         </div>
 
