@@ -141,7 +141,6 @@ const Page = () => {
           </div>
 
         </TerminalSection>
-
       </div>
     </div>
   );
