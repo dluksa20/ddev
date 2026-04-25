@@ -1,17 +1,19 @@
 # ---------- Builder Stage ----------
 FROM node:20-alpine AS builder
 WORKDIR /app
-
 COPY package.json package-lock.json* ./
 RUN npm ci
-
 COPY . .
+
+# Add these two lines BEFORE npm run build
+ARG NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+ENV NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=$NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+
 RUN npm run build
 
 # ---------- Runner Stage ----------
 FROM node:20-alpine AS runner
 WORKDIR /app
-
 ENV NODE_ENV=production
 ENV PORT=8080
 
@@ -22,5 +24,4 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 8080
-
 CMD ["npm", "run", "start"]
